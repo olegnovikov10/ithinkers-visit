@@ -1,0 +1,85 @@
+@import "../../styles/utils/vars.scss";
+@import "../../styles/utils/mixins.scss";
+
+.s-product-steps {
+	padding-top: 32px;
+
+	&__title {
+		font-size: 20px;
+		line-height: 28px;
+		margin-bottom: 10px;
+		color: $main-color;
+		font-weight: 600;
+		text-align: center;
+
+		@include onDesktop1200 {
+			margin-bottom: 20px;
+		}
+	}
+}
+
+.steps {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+
+	@include onDesktop1200 {
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+}
+
+.steps-item {
+	display: flex;
+	flex-direction: column;
+	padding: 24px 36px 24px 24px;
+	background: #f6f6f6;
+	border-radius: 24px;
+
+	@include onTablet {
+		text-align: center;
+	}
+
+	@include onDesktop1200 {
+		width: calc(33.33% - 10px);
+		text-align: left;
+	}
+
+	&:last-child {
+		@include onDesktop1200 {
+			flex-basis: 100%;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+		}
+	}
+
+	&__header {
+		font-size: 72px;
+		line-height: 72px;
+		margin-bottom: 15px;
+		color: #5b5c55;
+		font-weight: 600;
+	}
+
+	&__title {
+		font-size: 24px;
+		line-height: 28px;
+		font-weight: 600;
+		margin-bottom: 8px;
+
+		&--footer {
+			margin-bottom: 15px;
+
+			@include onDesktop1200 {
+				margin-bottom: 0;
+			}
+		}
+	}
+	&__sub-title {
+		font-size: 16px;
+		line-height: 20px;
+		color: #5b5c55;
+	}
+}

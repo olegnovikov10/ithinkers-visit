@@ -1,0 +1,71 @@
+@import "../../styles/utils/vars.scss";
+@import "../../styles/utils/mixins.scss";
+
+.s-our-posibilities-pictures {
+	padding: 32px 0;
+	&__title {
+		text-align: center;
+		margin-bottom: 20px;
+	}
+}
+
+.our-posibilities-pictures {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	flex-direction: column;
+	align-items: center;
+
+	@include onDesktop1200 {
+		align-items: flex-start;
+		flex-direction: row;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		flex-shrink: 0;
+	}
+	&__item {
+		display: flex;
+		align-items: flex-end;
+		padding: 32px;
+		max-width: 320px;
+		height: 320px;
+		background-image: url(../../assets/images/posibilities.png);
+		background-size: cover;
+		background-position: center;
+		border-radius: 24px;
+
+		@include onDesktop1200 {
+			width: 592px;
+			height: 480px;
+			max-width: 580px;
+		}
+
+		&:nth-child(2) {
+			background-image: url(../../assets/images/posibilities2.png);
+		}
+		&:nth-child(3) {
+			background-image: url(../../assets/images/posibilities3.png);
+
+			@include onDesktop1200 {
+				align-content: flex-start;
+				flex-basis: 100%;
+				max-width: none;
+			}
+		}
+	}
+
+	&__title {
+		font-size: 24px;
+		line-height: 28px;
+		font-weight: 600;
+		color: #fff;
+
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+
+		& p {
+			color: #fff;
+		}
+	}
+}

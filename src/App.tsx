@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { FC, useContext, useEffect } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
+import { Footer } from "./components/Footer";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import "./App.scss";
+import { ModalSend } from "./components/Modal/ModalSend";
+import { ModalSuccess } from "./components/Modal/ModalSuccess";
+import { MyContext } from "./Context";
+
+const App: FC = () => {
+	const { isOpenModal, isOpenModalSuccess } = useContext(MyContext)!;
+	const navigate = useNavigate();
+	console.log(isOpenModal);
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+
+		return () => {};
+	}, [navigate]);
+	return (
+		<div className="App">
+			<Outlet />
+      
+			{isOpenModal && <ModalSend />}
+			{isOpenModalSuccess && <ModalSuccess />}
+			<Footer />
+		</div>
+	);
+};
 
 export default App;

@@ -1,0 +1,56 @@
+@import "../../styles/utils/vars.scss";
+@import "../../styles/utils/mixins.scss";
+
+.main-banner {
+	background: url("../../assets/images/banner-bg.png");
+	background-position: -50px center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding: 40px 24px 0;
+	max-width: 1200px;
+	margin: 0 auto;
+
+	@include onDesktop1200 {
+		display: flex;
+	}
+
+	&__title {
+		font-size: 28px;
+		line-height: 32px;
+		margin-bottom: 16px;
+
+		@include onDesktop1200 {
+			font-size: 42px;
+			line-height: 48px;
+		}
+	}
+
+	&__sub-title {
+		font-size: 14px;
+		line-height: 20px;
+		font-weight: 500;
+		margin-bottom: 24px;
+
+		@include onDesktop1200 {
+			font-size: 16px;
+			line-height: 22px;
+		}
+	}
+
+	&__left {
+		@include onDesktop1200 {
+			margin-top: 130px;
+			margin-left: 120px;
+			width: 603px;
+		}
+	}
+
+	&__right {
+		margin-top: 24px;
+		text-align: center;
+	}
+
+	&__img {
+		margin: 0 auto;
+	}
+}

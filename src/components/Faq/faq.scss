@@ -1,0 +1,68 @@
+@import "../../styles/utils/vars.scss";
+@import "../../styles/utils/mixins.scss";
+
+.s-faq {
+	padding: 32px 0;
+	&__title {
+		margin-bottom: 16px;
+	}
+}
+
+.faq {
+	&__item {
+		border-bottom: 1px solid #e8e8e8;
+		padding: 9px 0 14px;
+	}
+
+	&__header {
+		position: relative;
+		font-size: 16px;
+		cursor: pointer;
+		line-height: 20px;
+		font-weight: 500;
+
+		&.active {
+			&::after {
+				transform: translateY(50%) rotate(180deg);
+			}
+		}
+
+		&::after {
+			transition: all 1000ms ease;
+			position: absolute;
+			content: "";
+			display: block;
+			width: 24px;
+			height: 24px;
+			top: 0;
+			transform: translateY(50%);
+			margin-top: -12px;
+			right: 0;
+			background-image: url(../../assets/images/icon-down.png);
+		}
+
+		@include onDesktop1200 {
+			font-size: 20px;
+			line-height: 28px;
+		}
+	}
+
+	&__content {
+		padding-top: 5px;
+		color: #5b5c55;
+		font-size: 14px;
+		line-height: 20px;
+		overflow: hidden;
+		max-height: 0;
+		transition: all 1000ms ease;
+
+		@include onDesktop1200 {
+			font-size: 20px;
+			line-height: 28px;
+		}
+	}
+
+	&__content-active {
+		max-height: 200px;
+	}
+}

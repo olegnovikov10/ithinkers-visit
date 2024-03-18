@@ -1,0 +1,97 @@
+@import "../../styles/utils/vars.scss";
+@import "../../styles/utils/mixins.scss";
+
+.s-partners {
+	padding: 32px 0;
+
+	&__title {
+		margin-bottom: 8px;
+	}
+
+	&__sub-title {
+		font-size: 16px;
+		line-height: 20px;
+		margin-bottom: 24px;
+	}
+
+	&__footer-title {
+		font-size: 24px;
+		line-height: 28px;
+		font-weight: 600;
+		margin-bottom: 16px;
+
+		@include onTablet {
+			margin-bottom: 0;
+		}
+	}
+
+	&__footer {
+		display: flex;
+		flex-direction: column;
+		background-color: #f6f6f6;
+		padding: 24px;
+		border-radius: 24px;
+
+		@include onTablet {
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+		}
+	}
+}
+
+.partners {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	margin-bottom: 10px;
+
+	@include onDesktop1200 {
+		flex-direction: row;
+	}
+
+	&__item {
+		background-color: #f6f6f6;
+		border-radius: 24px;
+		padding: 32px 24px;
+		display: flex;
+		flex-direction: column;
+
+		@include onDesktop1200 {
+			flex-grow: 1;
+			margin-top: 10px;
+		}
+	}
+
+	&__title {
+		font-size: 20px;
+		line-height: 28px;
+		font-weight: 600;
+		margin-bottom: 12px;
+		color: #99999a;
+	}
+
+	&__content {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		gap: 12px;
+		margin-bottom: 10px;
+	}
+
+	&__img-wrap {
+		border-radius: 12px;
+		background-color: #fff;
+		display: flex;
+		width: 95px;
+		height: 56px;
+		border-radius: 12px;
+
+		@include onDesktop1200 {
+			width: 80px;
+		}
+	}
+	&__img {
+		margin: auto;
+	}
+}

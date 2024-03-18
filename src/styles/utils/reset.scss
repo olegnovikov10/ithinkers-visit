@@ -1,0 +1,38 @@
+* {
+	font-family: "Inter";
+	box-sizing: border-box;
+	color: #000;
+
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	// overflow: hidden;
+}
+
+img {
+	max-width: 100%;
+	display: block;
+}
+
+button {
+	border: none;
+	background-color: transparent;
+}
+
+a {
+	text-decoration: none;
+}
+
+input {
+	appearance: none;
+}
+
+ul {
+	list-style: none;
+}

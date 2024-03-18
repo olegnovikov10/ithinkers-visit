@@ -1,0 +1,49 @@
+@import "../../styles//utils/vars.scss";
+@import "../../styles//utils/mixins.scss";
+
+.header {
+	position: sticky;
+	top: 0;
+	background-color: #fff;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 16px 24px;
+	z-index: 9;
+	max-width: 1200px;
+	margin: 0 auto;
+
+	@include onDesktop1200 {
+		padding-inline: 0;
+	}
+
+	&__right {
+		display: flex;
+		align-items: center;
+	}
+}
+
+
+
+.burger-button {
+	cursor: pointer;
+	margin-left: 5px;
+	padding: 12px 8px;
+	width: 40px;
+	height: 40px;
+	background-color: rgba($color: #f6f6f6, $alpha: 0.5);
+	display: flex;
+	align-items: center;
+	border-radius: 8px;
+
+	@include onDesktop1200 {
+		display: none;
+	}
+
+	&__img {
+		margin: auto;
+		width: 100%;
+	}
+}
+
+

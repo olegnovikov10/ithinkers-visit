@@ -1,0 +1,32 @@
+@import "../../../styles/utils/vars.scss";
+@import "../../../styles/utils/mixins.scss";
+
+.app-preview-item {
+	display: flex;
+	&__left {
+	}
+
+	&__name-wrap {
+		border-radius: 6px;
+		padding: 4px 6px;
+		background-color: #e8e8e8;
+		display: flex;
+		align-items: center;
+		gap: 5px;
+	}
+
+	&__name {
+		font-size: 14px;
+		font-weight: 700;
+		line-height: 20px;
+
+		@include onDesktop1200 {
+		}
+	}
+
+	&__title {
+		font-size: 24px;
+		font-weight: 600;
+		line-height: 28px;
+	}
+}

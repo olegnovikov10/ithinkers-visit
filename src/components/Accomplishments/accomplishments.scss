@@ -1,0 +1,92 @@
+@import "../../styles/utils/vars.scss";
+@import "../../styles/utils/mixins.scss";
+
+.s-accomplishments {
+	padding: 32px 0;
+
+	&__title {
+		display: none;
+
+		@include onDesktop1200 {
+			display: block;
+			text-align: center;
+		}
+	}
+}
+
+.accomplishments {
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+	padding: 16px;
+
+	@include onDesktop1200 {
+		flex-direction: row;
+		justify-content: space-between;
+		gap: 32px;
+	}
+
+	&__title {
+		font-size: 32px;
+		line-height: 40px;
+		font-weight: 600;
+		margin-bottom: 24px;
+		text-align: center;
+
+		&--grey {
+			color: #808080;
+		}
+	}
+
+	&__content {
+		padding: 24px 8px;
+		border-radius: 24px;
+		text-align: center;
+
+		@include onDesktop1200 {
+			padding: 32px;
+		}
+	}
+
+	&__item {
+		padding: 16px 5px;
+		background-color: rgba($color: #fff, $alpha: 0.3);
+		border-radius: 15px;
+		margin-bottom: 8px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__item--no-bg {
+		background-color: transparent;
+	}
+
+	&__item-wrap {
+		@include onDesktop1200 {
+			width: 50%;
+		}
+	}
+
+	&__content {
+		background-color: #f6f6f6;
+	}
+
+	&__content--with-bg {
+		background-image: url(../../assets/images/banner-bg.png);
+	}
+
+	&__header {
+		font-size: 28px;
+		line-height: 32px;
+		font-weight: 600;
+		margin-bottom: 10px;
+	}
+
+	&__description {
+		font-size: 16px;
+		line-height: 20px;
+		color: #5b5c55;
+	}
+}

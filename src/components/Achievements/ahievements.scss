@@ -1,0 +1,53 @@
+@import "../../styles/utils/vars.scss";
+@import "../../styles/utils/mixins.scss";
+
+.s-achievements {
+	padding: 20px 0;
+
+	&__title {
+		@include onTablet {
+			text-align: center;
+			margin: 20px 0;
+		}
+	}
+}
+
+.achievements {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+
+	@include onDesktop1200 {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+}
+
+.achievements-item {
+	background-color: $bg-gray;
+	padding: 32px;
+	border-radius: 24px;
+
+	@include onTablet {
+		text-align: center;
+	}
+
+	@include onDesktop1200 {
+		min-width: 260px;
+		text-align: left;
+	}
+
+	&__name {
+		color: #5b5c55;
+		font-size: 16px;
+		line-height: 22px;
+		margin-bottom: 5px;
+	}
+
+	&__content {
+		color: $main-color;
+		font-size: 32px;
+		line-height: 34px;
+		font-weight: 700;
+	}
+}

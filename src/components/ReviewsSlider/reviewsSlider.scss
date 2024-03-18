@@ -1,0 +1,109 @@
+@import "../../styles/utils/vars.scss";
+@import "../../styles/utils/mixins.scss";
+
+.s-reviews {
+	padding: 20px 0;
+	&__title {
+		margin: 10px 0;
+	}
+}
+
+.wrapper-flex-reviews-header {
+	@include onDesktop1200 {
+		display: flex;
+		justify-content: space-between;
+	}
+}
+
+.reviews-slider {
+	position: relative;
+	margin-top: 20px;
+
+	&__item {
+		@include onDesktop1200 {
+			display: flex;
+			gap: 40px;
+		}
+	}
+
+	& .swiper-slide {
+		max-width: 65%;
+
+		@include onDesktop1200 {
+			width: 720px;
+		}
+	}
+
+	&__text {
+		font-size: 14px;
+		line-height: 20px;
+		font-weight: 500;
+		color: $main-color;
+		margin-bottom: 16px;
+
+		@include onDesktop1200 {
+			font-size: 18px;
+			line-height: 28px;
+			font-weight: 400;
+		}
+	}
+
+	&__header {
+		margin-bottom: 16px;
+
+		& img {
+			width: 165px;
+			height: 165px;
+			border-radius: 100%;
+			max-width: none;
+			object-fit: cover;
+
+			@include onDesktop1200 {
+				width: 255px;
+				height: 255px;
+				border-radius: 64px;
+			}
+		}
+	}
+
+	&__footer {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+
+		&-name {
+			font-size: 16px;
+			line-height: 22px;
+			font-weight: 500;
+			color: $main-color;
+		}
+		&-info {
+			font-size: 12px;
+			line-height: 16px;
+		}
+	}
+}
+
+.reviews-slider-button-prev,
+.reviews-slider-button-next {
+	display: inline-flex;
+	width: 40px;
+	height: 40px;
+	border: 1px solid #e8e8e8;
+	cursor: pointer;
+	border-radius: 8px;
+
+	& img {
+		margin: auto;
+	}
+}
+
+.reviews-slider-button-prev {
+	@include onDesktop1200 {
+		margin-left: auto;
+	}
+}
+
+.reviews-slider-button-next {
+	margin-left: 12px;
+}

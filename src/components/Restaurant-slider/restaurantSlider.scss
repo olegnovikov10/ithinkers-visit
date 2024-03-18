@@ -1,0 +1,9 @@
+.restaurant-slider {
+	padding: 32px 0;
+	& img {
+		filter: grayscale(100%);
+		&:hover {
+			filter: none;
+		}
+	}
+}

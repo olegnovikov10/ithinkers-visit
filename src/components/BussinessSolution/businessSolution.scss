@@ -1,0 +1,130 @@
+@import "../../styles/utils/vars.scss";
+@import "../../styles/utils/mixins.scss";
+
+.s-business {
+	padding: 0 10px;
+}
+
+.businnes-title {
+	padding: 8px 16px;
+	color: #5b5c55;
+	text-align: center;
+	font-size: 20px;
+	line-height: 28px;
+	font-weight: 600;
+
+	@include onTablet {
+		font-size: 32px;
+		line-height: 40px;
+		color: #0d0d10;
+	}
+}
+
+.business-solution-item {
+	border-radius: 24px;
+	margin-bottom: 16px;
+
+	@include onTablet {
+		display: flex;
+		padding-top: 40px;
+	}
+
+	&-content {
+		margin: auto;
+	}
+
+	&__title {
+		margin-bottom: 8px;
+		font-size: 24px;
+		line-height: 28px;
+		font-weight: 600;
+
+		@include onTablet {
+			font-size: 32px;
+			line-height: 40px;
+			letter-spacing: -0.32px;
+		}
+	}
+
+	&__sub-title {
+		margin-bottom: 24px;
+		font-size: 16px;
+		line-height: 20px;
+		color: #5b5c55;
+
+		@include onTablet {
+			font-size: 20px;
+			line-height: 28px;
+		}
+	}
+
+	&__left {
+		padding: 40px 16px 24px;
+
+		@include onTablet {
+			display: flex;
+			flex-direction: column;
+			align-self: center;
+			padding: 10px 50px 10px 60px;
+			width: 670px;
+		}
+	}
+
+	&__right {
+		text-align: center;
+		flex-grow: 1;
+
+		&__img {
+			margin: 0 auto;
+		}
+	}
+
+	&__img {
+		margin: 0 auto;
+	}
+
+	&__links {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 24px;
+
+		@include onTablet {
+			flex-direction: row;
+		}
+	}
+
+	&__link-detail {
+		width: 100%;
+		padding: 16px;
+		background: #0d0d10;
+		color: #fff;
+		text-align: center;
+		font-size: 16px;
+		line-height: 22px;
+		border-radius: 8px;
+
+		@include onTablet {
+			min-width: 220px;
+			width: auto;
+		}
+	}
+
+	&__link-prezentation {
+		font-size: 16px;
+		line-height: 22px;
+		color: #5b5c55;
+		padding: 8px 16px 8px 44px;
+		position: relative;
+
+		&::before {
+			display: block;
+			position: absolute;
+			background: url("../../assets/images/iconPDF.png");
+			content: "";
+			width: 20px;
+			height: 20px;
+			left: 19px;
+		}
+	}
+}

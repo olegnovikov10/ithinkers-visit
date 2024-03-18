@@ -1,0 +1,54 @@
+@import "../../styles/utils/vars.scss";
+@import "../../styles/utils/mixins.scss";
+
+.s-our-clients {
+	padding: 32px 0;
+
+	&__title {
+		margin-bottom: 10px;
+	}
+
+	&__sub-title {
+		font-size: 16px;
+		line-height: 20px;
+		color: #5b5c55;
+		margin-bottom: 24px;
+
+		@include onDesktop1200 {
+			font-size: 20px;
+			line-height: 28px;
+		}
+	}
+}
+
+.our-clients-wrapper {
+	text-align: center;
+}
+
+.our-clients {
+	display: inline-block;
+	text-align: left;
+	@include onDesktop1200 {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 11px;
+	}
+
+	&__link {
+		display: inline-block;
+		margin: 0 5px;
+	}
+
+	&__img {
+		display: inline-block;
+		width: 40px;
+		height: 40px;
+		object-fit: cover;
+		border-radius: 100%;
+
+		@include onDesktop1200 {
+			width: 64px;
+			height: 64px;
+		}
+	}
+}

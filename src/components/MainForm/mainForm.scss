@@ -1,0 +1,57 @@
+.main-form {
+	max-width: 440px;
+	&__inputs-wrap {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 24px;
+		gap: 8px;
+	}
+
+	&__title {
+		margin-bottom: 18px;
+	}
+
+	&__input {
+		background-color: #fff;
+		padding: 0 20px;
+		border-radius: 8px;
+		border: none;
+		height: 56px;
+		width: 100%;
+		font-size: 20px;
+		color: #7b7b7b;
+
+		&::placeholder {
+			font-size: 20px;
+			color: #7b7b7b;
+		}
+	}
+
+	&__button {
+		width: 100%;
+		padding: 16px;
+	}
+
+	&__footer {
+		font-size: 12px;
+		line-height: 16px;
+		color: #5b5c55;
+		margin-top: 8px;
+		margin-bottom: 24px;
+	}
+}
+
+.phone-input-container {
+	position: relative;
+}
+
+.flag-icon {
+	position: absolute;
+	left: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.phone-input {
+	padding-left: 40px;
+}

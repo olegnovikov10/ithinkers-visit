@@ -1,0 +1,181 @@
+@import "../../styles/utils/vars.scss";
+@import "../../styles/utils/mixins.scss";
+
+.s-functionality {
+	margin-bottom: 30px;
+	&__title {
+		margin-bottom: 10px;
+	}
+}
+
+.functionality {
+	padding: 24px 24px 8px;
+	border-radius: 24px;
+
+	@include onDesktop1200 {
+		padding: 60px 0 0;
+		border-radius: 62px;
+	}
+
+	background-color: #f6f6f6;
+
+	&__counter {
+		display: inline-block;
+		margin-left: 10px;
+		font-weight: 600;
+		font-size: 20px;
+		line-height: 28px;
+		color: #5b5c55;
+		vertical-align: middle;
+
+		@include onDesktop1200 {
+			margin-bottom: 80px;
+		}
+	}
+}
+
+.functionality-slider {
+	position: relative;
+
+	@include onDesktop1200 {
+		display: flex;
+	}
+
+	&__left {
+		margin-bottom: 20px;
+		@include onDesktop1200 {
+			display: block;
+			padding: 0 10px 30px 62px;
+			width: 600px;
+			flex-shrink: 0;
+			margin-bottom: 0;
+		}
+	}
+}
+
+.custom-pagination-container-wrap {
+	position: relative;
+}
+
+.slide-title {
+	font-size: 32px;
+	font-weight: 600;
+	line-height: 40px;
+	margin-bottom: 30px;
+
+	@include onDesktop1200 {
+		display: none;
+	}
+}
+
+.custom-pagination-up {
+	position: absolute;
+	top: 0;
+	right: 150px;
+
+	display: none;
+
+	@include onDesktop1200 {
+		display: block;
+	}
+
+	& img {
+		transform: rotate(180deg);
+	}
+}
+
+.custom-pagination-down {
+	position: absolute;
+	bottom: -20px;
+	right: 120px;
+
+	display: none;
+
+	@include onDesktop1200 {
+		display: block;
+	}
+}
+
+.custom-pagination-container {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	flex-shrink: 0;
+	flex-grow: 1;
+	scrollbar-width: none;
+	scroll-behavior: smooth;
+
+	display: none;
+
+	@include onDesktop1200 {
+		display: block;
+	}
+
+	& span {
+		display: block;
+		width: 100%;
+		font-weight: 500;
+		font-size: 24px;
+		line-height: 56px;
+		color: #5b5c55;
+
+		& img {
+			height: auto;
+		}
+
+		&.swiper-pagination-bullet-active {
+			font-weight: 600;
+			font-size: 40px;
+			line-height: 56px;
+			color: #0d0d10;
+		}
+	}
+}
+
+.swiper {
+	height: auto;
+	@include onDesktop1200 {
+		width: 100%;
+		height: 760px;
+	}
+}
+
+.progress-bar-container {
+	display: inline-block;
+}
+
+.custom-pagination-container {
+	overflow: auto;
+	max-height: 580px;
+}
+
+.functionality-slider-button-next,
+.functionality-slider-button-prev {
+	z-index: 2;
+	display: inline-flex;
+	width: 40px;
+	height: 40px;
+	border: 1px solid #e8e8e8;
+	cursor: pointer;
+	border-radius: 8px;
+	position: absolute;
+
+	@include onDesktop1200 {
+		display: none;
+	}
+
+	& img {
+		margin: auto;
+	}
+}
+
+.functionality-slider-button-next {
+	top: -5px;
+	right: 0;
+}
+
+.functionality-slider-button-prev {
+	top: -5px;
+	right: 50px;
+}

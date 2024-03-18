@@ -1,0 +1,11 @@
+@mixin onTablet {
+	@media (min-width: $tablet-min-width) {
+		@content;
+	}
+}
+
+@mixin onDesktop1200 {
+	@media (min-width: $desktop-min-width--1200) {
+		@content;
+	}
+}
