@@ -5,20 +5,21 @@ import {
 	Routes,
 	useNavigate,
 } from "react-router-dom";
-import App from "./App";
+import WrapApp from "./App";
 import { Home } from "./pages/Home";
 import { Site } from "./pages/Site";
 import { App as AppPage } from "./pages/App";
 import { CoffeeShop } from "./pages/Coffeeshop";
 import { NotFound } from "./pages/NotFound";
 import { MyContextProvider } from "./Context";
+import "./i18n";
 
 export const Routing = () => {
 	return (
 		<Router>
 			<MyContextProvider>
 				<Routes>
-					<Route path="/" element={<App />}>
+					<Route path="/" element={<WrapApp />}>
 						<Route index element={<Home />} />
 						<Route path="home" element={<Navigate to="/" replace />} />
 						<Route path="app" element={<AppPage />} />

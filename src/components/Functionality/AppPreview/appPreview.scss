@@ -1,10 +1,68 @@
 @import "../../../styles/utils/vars.scss";
 @import "../../../styles/utils/mixins.scss";
 
+
+
+.app-preview {
+	
+	&__header {
+		display: inline-flex;
+		overflow: auto;
+		scrollbar-width: 0;
+		gap: 16px;
+		max-width: 100%;
+		margin-bottom: 50px;
+		padding-bottom: 10px;
+	}
+
+	&__item-wrap{
+		padding: 16px 32px 16px 16px;
+		background:transparent;
+
+		border-radius: 20px;
+		border:1px solid #0D0D10;
+		text-wrap:nowrap;
+
+		&.is-active{
+			border:1px solid transparent;
+			background: #F6F6F6;
+		}
+	}
+
+	&__content{
+		display: flex;
+		overflow: auto;
+		scrollbar-width: 0;
+		gap:20px;
+		
+		@include onTablet{
+			gap:40px;
+		}
+	
+	}
+
+	&__content-img{
+		max-width: 208px;
+
+		@include onTablet{
+			max-width: 270px;
+			height: auto;
+		}
+	}
+}
+
+
 .app-preview-item {
 	display: flex;
+	gap: 8px;
 	&__left {
 	}
+
+	&__icon{
+		height: 20px;
+	}
+
+	
 
 	&__name-wrap {
 		border-radius: 6px;
@@ -13,6 +71,8 @@
 		display: flex;
 		align-items: center;
 		gap: 5px;
+		margin-bottom: 8px;
+		
 	}
 
 	&__name {

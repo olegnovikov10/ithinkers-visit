@@ -1,4 +1,4 @@
-import React, { FC, useContext, useEffect } from "react";
+import React, { FC, Suspense, useContext, useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { Footer } from "./components/Footer";
 
@@ -18,13 +18,15 @@ const App: FC = () => {
 		return () => {};
 	}, [navigate]);
 	return (
-		<div className="App">
-			<Outlet />
-      
-			{isOpenModal && <ModalSend />}
-			{isOpenModalSuccess && <ModalSuccess />}
-			<Footer />
-		</div>
+		<Suspense fallback="loading">
+			<div className="App">
+				<Outlet />
+
+				{isOpenModal && <ModalSend />}
+				{isOpenModalSuccess && <ModalSuccess />}
+				<Footer />
+			</div>
+		</Suspense>
 	);
 };
 

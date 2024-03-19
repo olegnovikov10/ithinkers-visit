@@ -2,8 +2,11 @@ import { FC } from "react";
 import { Button } from "../Button";
 import "./mainBanner.scss";
 import imageBanner from "../../assets/images/banner-mobile.png";
+import { useTranslation } from "react-i18next";
 
 export const MainBanner: FC = () => {
+	const { t } = useTranslation();
+
 	return (
 		<div className="main-banner">
 			<div className="main-banner__left">
