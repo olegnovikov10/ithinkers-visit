@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useContext, useState } from "react";
 import Select from "react-select";
 
 import ua from "../../assets/images/ua.png";
@@ -7,6 +7,8 @@ import pl from "../../assets/images/poland.png";
 import usa from "../../assets/images/usa.png";
 
 import "./languages.scss";
+import { MyContext } from "../../Context";
+import { useTranslation } from "react-i18next";
 
 interface LanguageOption {
 	value: string;
@@ -15,10 +17,10 @@ interface LanguageOption {
 }
 
 const options: LanguageOption[] = [
-	{ value: "ukraine", label: "УКР", image: ua },
-	{ value: "england", label: "ENG", image: usa },
-	{ value: "poland", label: "PL", image: pl },
-	{ value: "russia", label: "РУС", image: ru },
+	{ value: "ua", label: "УКР", image: ua },
+	{ value: "en", label: "ENG", image: usa },
+	{ value: "pl", label: "PL", image: pl },
+	{ value: "ru", label: "РУС", image: ru },
 ];
 
 interface ControlStyles {
@@ -26,18 +28,29 @@ interface ControlStyles {
 }
 
 export const LanguageSwitcher: FC = () => {
+	const { i18n } = useTranslation();
+
 	const [selectedOption, setSelectedOption] = useState<LanguageOption | null>(
-		options[0]
+		options.find((option) => option.value === i18n.language) || null
 	);
+
+	const { changeLanguage } = useContext(MyContext)!;
+
+	const handleLanguageChange = (selectedOption: LanguageOption | null) => {
+		setSelectedOption(selectedOption); // Обновляем выбранный язык в состоянии компонента
+		if (selectedOption) {
+			changeLanguage(selectedOption.value); // Вызываем функцию изменения языка из контекста
+		}
+	};
 
 	return (
 		<div className="header-languages">
 			<Select
-				defaultValue={selectedOption}
-				onChange={setSelectedOption}
-				options={options}
+				value={selectedOption}
+				onChange={handleLanguageChange}
 				className="wrapprer-languages-select"
 				classNamePrefix="wrapprer-languages"
+				options={options}
 				menuPlacement="auto"
 				isSearchable={false}
 				theme={(theme) => ({

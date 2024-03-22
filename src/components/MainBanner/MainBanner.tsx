@@ -5,15 +5,13 @@ import imageBanner from "../../assets/images/banner-mobile.png";
 import { useTranslation } from "react-i18next";
 
 export const MainBanner: FC = () => {
-	const { t } = useTranslation();
+	const { t, i18n } = useTranslation();
 
 	return (
 		<div className="main-banner">
 			<div className="main-banner__left">
 				<div className="">
-					<h1 className="main-banner__title">
-						Додаток та сайт для ресторану без значних витрат на розробку
-					</h1>
+					<h1 className="main-banner__title">{t("main.header")}</h1>
 					<div className="main-banner__sub-title">
 						Збільшуй кількість замовлень та підвищуй середній чек, покращуй
 						лояльність клієнтів. Розвивай свій бізнес за допомогою готового

@@ -15,6 +15,8 @@ import { OurPossibilitiesPictures } from "../../components/OurPossibilitiesPictu
 import { Accomplishments } from "../../components/Accomplishments";
 import { ModalSend } from "../../components/Modal/ModalSend";
 import { ModalSuccess } from "../../components/Modal/ModalSuccess";
+import { AppPreview } from "../../components/Functionality/AppPreview";
+import { Functionality } from "../../components/Functionality/Functionality";
 
 interface Props {}
 
@@ -29,6 +31,8 @@ export const Site: FC<Props> = () => {
 			<div className="main-container">
 				<OurPossibilities />
 				<OurPossibilitiesPictures />
+				<Functionality />
+				<AppPreview />
 				<BusinessSolution
 					title="Інші продукти"
 					isCoffeeShop

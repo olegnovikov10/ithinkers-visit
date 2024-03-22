@@ -1,4 +1,6 @@
 import React, { createContext, useState } from "react";
+import { i18n } from "i18next";
+import { useTranslation } from "react-i18next";
 
 // Определение типа для контекста
 interface MyContextType {
@@ -6,6 +8,7 @@ interface MyContextType {
 	isOpenModalSuccess: boolean;
 	checkModalOpen: () => void;
 	checkSuccessOpen: () => void;
+	changeLanguage: (arg: string) => void;
 }
 
 interface Props {
@@ -17,6 +20,12 @@ export const MyContext = createContext<MyContextType | undefined>(undefined);
 export const MyContextProvider: React.FC<Props> = ({ children }) => {
 	const [isOpenModal, setIsModalOpen] = useState<boolean>(false);
 	const [isOpenModalSuccess, setIsOpenModalSuccess] = useState<boolean>(false);
+
+	const { i18n } = useTranslation();
+
+	const changeLanguage = (lng: string) => {
+		i18n.changeLanguage(lng);
+	};
 
 	const checkModalOpen = () => {
 		setIsModalOpen(!isOpenModal);
@@ -31,6 +40,7 @@ export const MyContextProvider: React.FC<Props> = ({ children }) => {
 		isOpenModalSuccess,
 		checkModalOpen,
 		checkSuccessOpen,
+		changeLanguage,
 	};
 
 	return (

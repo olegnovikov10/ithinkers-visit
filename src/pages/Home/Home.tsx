@@ -23,8 +23,6 @@ export const Home = () => {
 				<MainBanner />
 			</div>
 			<div className="main-container">
-				<AppPreview />
-				<Functionality />
 				<BusinessSolution
 					title="Рішення для вашого бізнесу"
 					isSite={true}

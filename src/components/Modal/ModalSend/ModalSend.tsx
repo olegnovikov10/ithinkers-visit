@@ -11,6 +11,7 @@ interface Props {}
 
 export const ModalSend: FC<Props> = () => {
 	const { checkModalOpen } = useContext(MyContext)!;
+
 	return (
 		<ModalLayout>
 			<div className="modal-send">

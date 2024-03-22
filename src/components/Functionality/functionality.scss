@@ -5,6 +5,9 @@
 	margin-bottom: 30px;
 	&__title {
 		margin-bottom: 10px;
+		@include onDesktop1200 {
+			text-align: center;
+		}
 	}
 }
 
@@ -133,7 +136,7 @@
 	}
 }
 
-.swiper {
+.functionality-slider-container {
 	height: auto;
 	@include onDesktop1200 {
 		width: 100%;

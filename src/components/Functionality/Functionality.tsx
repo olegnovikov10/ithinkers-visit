@@ -188,7 +188,7 @@ export const Functionality: FC<Props> = () => {
 							prevEl: `.functionality-slider-button-prev`,
 						}}
 						modules={[Pagination, Navigation]}
-						className="mySwiper"
+						className="functionality-slider-container"
 					>
 						{links.map((item, ind) => (
 							<SwiperSlide key={item.title + ind}>

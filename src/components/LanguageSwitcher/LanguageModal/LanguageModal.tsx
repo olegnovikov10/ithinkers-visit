@@ -9,10 +9,10 @@ interface LanguageOption {
 }
 
 const options: LanguageOption[] = [
-	{ value: "ukraine", label: "Украінська" },
-	{ value: "england", label: "England" },
-	{ value: "poland", label: "Poland" },
-	{ value: "russia", label: "Русский" },
+	{ value: "ua", label: "Украінська" },
+	{ value: "en", label: "England" },
+	{ value: "pl", label: "Poland" },
+	{ value: "ru", label: "Русский" },
 ];
 
 interface ControlStyles {

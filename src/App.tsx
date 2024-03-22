@@ -10,7 +10,6 @@ import { MyContext } from "./Context";
 const App: FC = () => {
 	const { isOpenModal, isOpenModalSuccess } = useContext(MyContext)!;
 	const navigate = useNavigate();
-	console.log(isOpenModal);
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
