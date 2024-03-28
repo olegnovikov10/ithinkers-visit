@@ -16,58 +16,14 @@ import "./functionality.scss";
 import "swiper/css";
 //import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { SlideFunc } from "../../context/ContextData";
 
-interface Props {}
+interface Props {
+	title?: string;
+	slides?: SlideFunc[];
+}
 
-const links = [
-	{
-		title: "Меню та категорії",
-		img: img,
-	},
-	{
-		title: "Модифікатори",
-		img: img,
-	},
-	{
-		title: "Система лояльності",
-		img: img,
-	},
-	{
-		title: "Розсилка PUSH повідомлень",
-		img: img,
-	},
-	{
-		title: "Доставка та самовивіз",
-		img: img,
-	},
-	{
-		title: "Аналітика",
-		img: img,
-	},
-	{
-		title: "Різні способи оплати",
-		img: img,
-	},
-	{
-		title: "Функціонал додатку",
-		img: img,
-	},
-	{
-		title: "Бронювання столиків",
-		img: img,
-	},
-
-	{
-		title: "Система лояльності",
-		img: img,
-	},
-	{
-		title: "Розсилка PUSH повідомлень",
-		img: img,
-	},
-];
-
-export const Functionality: FC<Props> = () => {
+export const Functionality: FC<Props> = ({ title, slides = [] }) => {
 	const [counter, setCounter] = useState<number>(1);
 
 	const scrollableBlockRef = useRef<HTMLDivElement>(null);
@@ -115,11 +71,11 @@ export const Functionality: FC<Props> = () => {
 		setCounter(index + 1);
 	};
 
-	const valueProgress = (counter / links.length) * 100;
+	const valueProgress = (counter / slides.length) * 100;
 
 	return (
 		<section className="s-functionality">
-			<h2 className="h2 s-functionality__title">Функціонал додатку</h2>
+			<h2 className="h2 s-functionality__title">{title}</h2>
 			<div className="functionality">
 				<div className="functionality-slider">
 					<div className="functionality-slider__left">
@@ -136,7 +92,7 @@ export const Functionality: FC<Props> = () => {
 							/>
 						</div>
 						<div className="functionality__counter">
-							{counter} / {links.length}
+							{counter} / {slides.length}
 						</div>
 						<div className="custom-pagination-container-wrap">
 							<div
@@ -177,7 +133,7 @@ export const Functionality: FC<Props> = () => {
 							type: "bullets", // or 'progressbar', 'fraction', etc.
 							clickable: true, // Make pagination bullets clickable
 							renderBullet: (index: number, className: string) => {
-								return `<span class="${className}">${links[index]?.title}</span>`;
+								return `<span class="${className}">${slides[index]?.title}</span>`;
 							},
 						}}
 						onSlideChange={({ activeIndex }: { activeIndex: number }) =>
@@ -190,7 +146,7 @@ export const Functionality: FC<Props> = () => {
 						modules={[Pagination, Navigation]}
 						className="functionality-slider-container"
 					>
-						{links.map((item, ind) => (
+						{slides.map((item, ind) => (
 							<SwiperSlide key={item.title + ind}>
 								<div className="slide-title">{item.title}</div>
 								<img src={item.img} alt="" />

@@ -1,0 +1,60 @@
+@import "../../../styles/utils/vars.scss";
+@import "../../../styles/utils/mixins.scss";
+
+.s-why-us{
+    padding: 30px 0;
+    &__title{
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 10px;
+        text-align: center;
+
+        @include onDesktop1200{
+            font-size: 32px;
+        }
+    }
+
+    &__description{
+        font-size: 14px;
+        text-align: center;
+        margin-bottom: 20px;
+
+        @include onDesktop1200{
+            font-size: 20px;
+        }
+    }
+}
+
+.why-us {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    @include onTablet{
+        justify-content: space-between;
+        flex-direction: row;
+    }
+
+    &__item{
+        background: #F6F6F6;
+        text-align: center;
+        width: 100%;
+        border-radius: 24px;
+        padding: 10px;
+
+        @include onTablet{
+            width:288px;
+        }
+    }
+
+    &__title{
+        font-size: 20px;
+        font-weight: 500;
+    }
+    &__description{
+        color: #7B7B7B;
+        font-size: 16px;
+    }
+}
+

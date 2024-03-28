@@ -1,33 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FC, useState } from "react";
 import cn from "classnames";
 
 import "./faq.scss";
-
-const items = [
-	{
-		id: "1",
-		title: "Первый раздел",
-		content:
-			"Содержимое первого раздела Содержимое первого разделаСодержимое первого разделаСодержимое первого разделаСодержимое первого разделаСодержимое первого разделаСодержимое первого раздела",
-	},
-	{
-		id: "2",
-		title: "Второй раздел",
-		content:
-			"Dreambit company was founded some  years ago and Lorem ipsum sit amet, consectetur adipiscing elit. Nunc in vulputate libero et velitvulputate libero et velit”.Dreambit company was founded some  years ago and Lorem ipsum sit amet, consectetur adipiscing elit. Nunc in vulputate libero et velitvulputate libero et velit”. Lorem ipsum dolor sit amet, consectetur adipiscing Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-	},
-	{
-		id: "3",
-		title: "Третий раздел",
-		content: "Содержимое третьего раздела",
-	},
-];
+import { DataContext } from "../../context/ContextData";
 
 interface Props {}
 
 export const Faq: FC<Props> = () => {
-	const [data] = useState(items);
+	const { faq } = useContext(DataContext)!;
 	const [ids, setIds] = useState<string[]>([]);
 
 	const handleCheckId = (id: string) => {
@@ -48,10 +29,10 @@ export const Faq: FC<Props> = () => {
 
 	return (
 		<section className="s-faq">
-			<h2 className="h2 s-faq__title">Часті питання</h2>
+			<h2 className="h2 s-faq__title">{faq.title}</h2>
 
 			<ul className="faq">
-				{data.map((item: any) => {
+				{faq.data.map((item) => {
 					return (
 						<li className="faq__item" key={item.id}>
 							<div

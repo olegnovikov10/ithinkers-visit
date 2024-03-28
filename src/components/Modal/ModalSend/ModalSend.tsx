@@ -4,7 +4,7 @@ import { MainForm } from "../../MainForm/MainForm";
 import "./modalSend.scss";
 
 import close from "../../../assets/images/mobile-close.png";
-import { MyContext } from "../../../Context";
+import { MyContext } from "../../../context/Context";
 import { ModalLayout } from "../ModalLayout";
 
 interface Props {}

@@ -15,55 +15,21 @@ import content2 from "../../../assets/images/app-preview/content2.png";
 import content3 from "../../../assets/images/app-preview/content3.png";
 
 import "./appPreview.scss";
+import { TabFunc } from "../../../context/ContextData";
 
-interface Props {}
+interface Props {
+	tabs: TabFunc[];
+}
 
-const AppItems = [
-	{
-		id: "0",
-		img: sushi,
-		images: [content, content1, content2, content3],
-		icon: iconSushi,
-		name: "Cуші",
-		title: "Sushi master",
-		apps: "IOS android",
-	},
-	{
-		id: "1",
-		img: burger,
-		images: [content1, content2, content, content3],
-		icon: iconBurger,
-		name: "Бургерна",
-		title: "Master burger",
-		apps: "IOS android",
-	},
-	{
-		id: "2",
-		img: hata,
-		images: [content, content1, content2, content3],
-		icon: iconUkr,
-		name: "Українська",
-		title: "Хата піца",
-		apps: "IOS android",
-	},
-];
+export const AppPreview: FC<Props> = ({ tabs = [] }) => {
+	const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
 
-export const AppPreview: FC<Props> = () => {
-	const [isTabs, setIsTabs] = useState<boolean>(false);
-	const [tabsData] = useState(AppItems);
-	const [selectedTabId, setSelectedTabId] = useState(AppItems[0].id);
-
-	let selectedTab =
-		tabsData.find((tab) => tab.id === selectedTabId) || tabsData[0];
-
-	{
-		console.log(selectedTab);
-	}
+	let selectedTab = tabs.find((tab) => tab.id === selectedTabId) || tabs[0];
 
 	return (
 		<div className="app-preview">
 			<ul className="app-preview__header">
-				{tabsData.map((tab) => {
+				{tabs.map((tab) => {
 					return (
 						<li
 							className={cn("app-preview__item-wrap", {
@@ -79,7 +45,7 @@ export const AppPreview: FC<Props> = () => {
 								icon={tab.icon}
 								name={tab.name}
 								title={tab.title}
-								apps={tab.apps}
+								apps={`${tab.ios} ${tab.android}`}
 							/>
 						</li>
 					);

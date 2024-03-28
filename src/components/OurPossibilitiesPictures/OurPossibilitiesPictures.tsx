@@ -1,33 +1,32 @@
 import { FC } from "react";
 
 import "./ourPossibilitesPictures.scss";
+import { PossibilityPage } from "../../context/ContextData";
 
-interface Props {}
+interface Props {
+	possibilities?: PossibilityPage;
+}
 
-export const OurPossibilitiesPictures: FC<Props> = () => {
+export const OurPossibilitiesPictures: FC<Props> = ({ possibilities }) => {
 	return (
 		<section className="s-our-posibilities-pictures">
 			<h2 className="h2 s-our-posibilities-pictures__title">
-				Можливості додатку для вашого закладу
+				{possibilities?.title}
 			</h2>
 			<div className="our-posibilities-pictures">
-				<div className="our-posibilities-pictures__item">
-					<div className="our-posibilities-pictures__title">
-						Система лояльності
-					</div>
-				</div>
-				<div className="our-posibilities-pictures__item">
-					<div className="our-posibilities-pictures__title">
-						<p>Доставка</p>
-						<p>Самовивіз замовлення</p>
-					</div>
-				</div>
-				<div className="our-posibilities-pictures__item">
-					<div className="our-posibilities-pictures__title">
-						<p>Замовлення</p>
-						<p>Бронюваня столиків</p>
-					</div>
-				</div>
+				{possibilities?.dataPictures.map((item) => {
+					return (
+						<div
+							className="our-posibilities-pictures__item"
+							style={{ backgroundImage: `url(${item.img})` }}
+						>
+							<div className="our-posibilities-pictures__title">
+								<p>{item.firstTitle}</p>
+								{item.secondTitle && <p>{item.secondTitle}</p>}
+							</div>
+						</div>
+					);
+				})}
 			</div>
 		</section>
 	);

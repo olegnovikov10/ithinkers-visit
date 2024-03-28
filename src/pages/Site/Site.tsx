@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import { Achievements } from "../../components/Achievements";
 import { BusinessSolution } from "../../components/BussinessSolution";
 import { Faq } from "../../components/Faq";
@@ -17,29 +17,40 @@ import { ModalSend } from "../../components/Modal/ModalSend";
 import { ModalSuccess } from "../../components/Modal/ModalSuccess";
 import { AppPreview } from "../../components/Functionality/AppPreview";
 import { Functionality } from "../../components/Functionality/Functionality";
+import { DataContext } from "../../context/ContextData";
 
 interface Props {}
 
 export const Site: FC<Props> = () => {
+	const {
+		banner,
+		possibilities: { sitePage },
+		functionality,
+		advantages,
+	} = useContext(DataContext)!;
 	return (
 		<>
 			<Header />
 			<div className="header-wrapper">
-				<MainBanner />
+				<MainBanner
+					title={banner.sitePage.title}
+					description={banner.sitePage.description}
+				/>
 				<RestaurantSlider />
 			</div>
 			<div className="main-container">
-				<OurPossibilities />
-				<OurPossibilitiesPictures />
-				<Functionality />
-				<AppPreview />
-				<BusinessSolution
-					title="Інші продукти"
-					isCoffeeShop
-					isSite={false}
-					isApp
+				<OurPossibilities possibilities={sitePage} />
+				<OurPossibilitiesPictures possibilities={sitePage} />
+				<Functionality
+					title={functionality.title}
+					slides={functionality.slides.appPage}
 				/>
-				<Accomplishments />
+				<AppPreview tabs={functionality.tabs.appPage.data} />
+				<BusinessSolution isCoffeeShop isSite={false} isApp />
+				<Accomplishments
+					title={advantages.title}
+					advantages={advantages.appPage}
+				/>
 				<PriceTabs typeName="site" />
 			</div>
 		</>

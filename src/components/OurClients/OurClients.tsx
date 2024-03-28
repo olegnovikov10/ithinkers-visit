@@ -1,10 +1,12 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useContext, useEffect, useState } from "react";
 
 import "./ourClients.scss";
+import { DataContext } from "../../context/ContextData";
 
 interface Props {}
 
 export const OurClients: FC<Props> = () => {
+	const { clients } = useContext(DataContext)!;
 	const [images, setImages] = useState<string[]>([]);
 
 	useEffect(() => {
@@ -24,14 +26,8 @@ export const OurClients: FC<Props> = () => {
 
 	return (
 		<section className="s-our-clients">
-			<h2 className="h2 s-our-clients__title">
-				Понад 150 закладів із 10 країн, які нам довіряють!
-			</h2>
-			<div className="s-our-clients__sub-title">
-				E-app надає різноманітні послуги, які вже успішно використовують наші
-				партнери, полегшуючи трудовий процес для персоналу і забезпечуючи
-				задоволення відвідувачам закладу
-			</div>
+			<h2 className="h2 s-our-clients__title">{clients.title}</h2>
+			<div className="s-our-clients__sub-title">{clients.description}</div>
 			<div className="our-clients-wrapper">
 				<div className="our-clients">
 					{images.map((img: string, i) => {

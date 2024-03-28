@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 
 import { MainForm } from "../MainForm/MainForm";
 
@@ -12,10 +12,13 @@ import icons6 from "../../assets/images/instagramm-icon.png";
 import "./footer.scss";
 import { LanguageModal } from "../LanguageSwitcher/LanguageModal/LanguageModal";
 import { Link } from "react-router-dom";
+import { DataContext } from "../../context/ContextData";
 
 interface Props {}
 
 export const Footer: FC<Props> = () => {
+	const { footer: ftr } = useContext(DataContext)!;
+
 	return (
 		<footer className="footer">
 			<MainForm />
@@ -24,81 +27,81 @@ export const Footer: FC<Props> = () => {
 			</div>
 			<div className="feedbacks">
 				<div className="feedbacks__item">
-					<div className="feedbacks__title">Або зв'яжіться з нами:</div>
+					<div className="feedbacks__title">{ftr.contactUs.title}</div>
 					<div className="feedbacks__phones-wrap">
 						<div className="feedbacks__phones">
 							<div className="feedbacks__icons">
 								<a href="/#">
-									<img src={icons1} alt="" />
+									<img src={ftr.contactUs.iconNumber} alt="" />
 								</a>
 								<a href="/#">
-									<img src={icons2} alt="" />
+									<img src={ftr.contactUs.iconViber} alt="" />
 								</a>
 								<a href="/#">
-									<img src={icons3} alt="" />
+									<img src={ftr.contactUs.iconTelegram} alt="" />
 								</a>
 							</div>
 							<a href="" className="feedbacks__number">
-								+380 95 767 6266
+								{ftr.contactUs.phoneOne}
 							</a>
 						</div>
 
 						<div className="feedbacks__phones">
 							<div className="feedbacks__icons">
 								<a href="/#">
-									<img src={icons1} alt="" />
+									<img src={ftr.contactUs.iconNumber} alt="" />
 								</a>
 								<a href="/#">
-									<img src={icons2} alt="" />
+									<img src={ftr.contactUs.iconViber} alt="" />
 								</a>
 								<a href="/#">
-									<img src={icons3} alt="" />
+									<img src={ftr.contactUs.iconTelegram} alt="" />
 								</a>
 							</div>
 							<a href="" className="feedbacks__number">
-								+380 91 481 0204
+								{ftr.contactUs.phoneTwo}
 							</a>
 						</div>
 
 						<div className="feedbacks__phones">
 							<div className="feedbacks__icons">
 								<a href="/#">
-									<img src={icons1} alt="" />
+									<img src={ftr.contactUs.iconNumber} alt="" />
 								</a>
 							</div>
 							<a href="" className="feedbacks__number">
-								+380 91 481 0204
+								{ftr.contactUs.phoneThree}
 							</a>
 						</div>
 					</div>
 				</div>
 
 				<div className="feedbacks__item">
-					<div className="feedbacks__title">Соціальні мережі</div>
+					<div className="feedbacks__title">{ftr.socialNetworks.title}</div>
 					<div className="feedbacks__social-wrap">
 						<div className="feedbacks__social">
 							<a href="">
-								<img src={icons4} alt="" />
+								<img src={ftr.socialNetworks.iconMail} alt="" />
 							</a>
 							<a href="">
-								<img src={icons5} alt="" />
+								<img src={ftr.socialNetworks.iconFb} alt="" />
 							</a>
 							<a href="">
-								<img src={icons6} alt="" />
+								<img src={ftr.socialNetworks.iconInst} alt="" />
 							</a>
 						</div>
 					</div>
 				</div>
 
 				<div className="feedbacks__item">
-					<div className="feedbacks__title">Договори</div>
+					<div className="feedbacks__title">{ftr.agreement.title}</div>
 					<div className="feedbacks__agreemenent-wrap">
 						<div className="feedbacks__agreemenent">
 							<a href="/#" className="feedbacks__agreemenent-link">
-								ДОГОВІР ПУБЛІЧНОЇ ОФЕРТИ
+								{ftr.agreement.publicOffer}
 							</a>
 							<a href="/#" className="feedbacks__agreemenent-link">
-								ДОГОВІР СПІВПРАЦІ
+								{ftr.agreement.cooperation}
 							</a>
 						</div>
 					</div>

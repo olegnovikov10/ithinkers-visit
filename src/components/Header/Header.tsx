@@ -24,7 +24,10 @@ export const Header: FC = () => {
 			</div>
 			<div className="header__right">
 				<NavBar />
-				<LanguageSwitcher />
+				<div className="header-languages">
+					<LanguageSwitcher />
+				</div>
+
 				<Button cName="button button--black button--black-header">
 					Залишити заявку
 				</Button>

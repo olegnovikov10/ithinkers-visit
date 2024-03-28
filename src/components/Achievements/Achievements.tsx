@@ -1,17 +1,18 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import { AchievementsItem } from "./AchievementsItem";
 
 import "./ahievements.scss";
+import { DataContext } from "../../context/ContextData";
 
 export const Achievements: FC = () => {
+	const { achievements } = useContext(DataContext)!;
 	return (
 		<section className="s-achievements">
-			<h2 className="h2 s-achievements__title">Наші досягнення</h2>
+			<h2 className="h2 s-achievements__title">{achievements.title}</h2>
 			<div className="achievements">
-				<AchievementsItem name="Кількість установок" content="1 000 000+" />
-				<AchievementsItem name="Середня оцінка" content="⭐ 4.84" />
-				<AchievementsItem name="Позитивних відгуків" content="100 000+" />
-				<AchievementsItem name="Сума покупок в $" content="> 100 000 000$" />
+				{achievements.items.map((item) => {
+					return <AchievementsItem name={item.title} content={item.amount} />;
+				})}
 			</div>
 		</section>
 	);

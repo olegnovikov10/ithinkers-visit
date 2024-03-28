@@ -1,0 +1,55 @@
+@import "../../../styles/utils/vars.scss";
+@import "../../../styles/utils/mixins.scss";
+
+.program{ 
+    padding: 50px 0;
+    &__title{
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 12px;
+
+        @include onDesktop1200{
+            font-size: 32px;
+            text-align: center;
+        }
+    }
+}
+
+.program-steps {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap:8px;
+
+    @include onTablet {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &__item{
+        padding: 24px;
+        border-radius: 24px;
+        background-color: #F6F6F6;
+        @include onTablet {
+            flex-basis: 49%;
+        }
+    }
+
+    &__header{
+        font-size: 72px;
+        color: #5B5C55;
+        margin-bottom: 14px;
+    }
+
+    &__title {
+        font-size: 24px;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+
+    &__content {
+        font-size: 16px;
+        color: #5B5C55;
+    }
+
+}

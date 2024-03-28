@@ -5,6 +5,7 @@ import cn from "classnames";
 import menuClose from "../../../assets/images/mobile-close.png";
 
 import "./mobileMenu.scss";
+import { Menu } from "../Menu";
 
 interface Props {
 	isOpenMenu: boolean;
@@ -21,33 +22,7 @@ export const MobileMenu: FC<Props> = ({ isOpenMenu, handleOpenMenu }) => {
 				</div>
 			</div>
 			<div className="wrapper-nav">
-				<ul className="nav">
-					<li className="nav__item">
-						<a className="nav__link" href="#solution" onClick={handleOpenMenu}>
-							Рішення
-						</a>
-					</li>
-					<li className="nav__item">
-						<a className="nav__link" href="#reviews" onClick={handleOpenMenu}>
-							Відгуки
-						</a>
-					</li>
-					<li className="nav__item">
-						<a className="nav__link" href="#price" onClick={handleOpenMenu}>
-							Ціна
-						</a>
-					</li>
-					<li className="nav__item">
-						<a className="nav__link" href="/#" onClick={handleOpenMenu}>
-							Блог
-						</a>
-					</li>
-					<li className="nav__item">
-						<a className="nav__link" href="/#" onClick={handleOpenMenu}>
-							Партнерська програма
-						</a>
-					</li>
-				</ul>
+				<Menu handleOpenMenu={handleOpenMenu} />
 			</div>
 			<div className="language-mobile-wrap">
 				<LanguageModal />

@@ -1,0 +1,37 @@
+@import "../../../styles/utils/vars.scss";
+@import "../../../styles/utils/mixins.scss";
+
+.start-work{
+    background: url('../../../assets/images/banner-bg.png');
+    background-position: center;
+    border-radius: 24px;
+    padding: 32px;
+
+    &__title{
+        margin-bottom: 20px;
+
+        @include onDesktop1200{
+            text-align: center;
+        }
+    }
+}
+
+.start-work-form-wrap {
+
+    & .partners-form__input {
+        width: 296px;
+        margin-bottom: 0;
+        padding: 15px 9px;
+    }
+    & .button-partners-form { 
+        width: 296px;
+    }
+
+    form {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+
+    }
+}

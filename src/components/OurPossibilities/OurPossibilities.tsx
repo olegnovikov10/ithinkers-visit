@@ -1,37 +1,26 @@
 import { FC } from "react";
 
 import "./ourPossibilities.scss";
+import { PossibilityPage } from "../../context/ContextData";
 
-interface Props {}
+interface Props {
+	possibilities?: PossibilityPage;
+}
 
-export const OurPossibilities: FC<Props> = () => {
+export const OurPossibilities: FC<Props> = ({ possibilities }) => {
 	return (
 		<section className="s-posibilities">
-			<h2 className="h2 s-posibilities__title">
-				Можливості додатку для вашого закладу
-			</h2>
+			<h2 className="h2 s-posibilities__title">{possibilities?.title}</h2>
 			<div className="posibilities">
-				<div className="posibilities__item">
-					<div className="posibilities__header">📉 На 20%</div>
-					<div className="posibilities__title">Скорочує витрати</div>
-					<p className="posibilities__text">
-						не потрібно використовувати неефектине PDF або друковане меню
-					</p>
-				</div>
-				<div className="posibilities__item">
-					<div className="posibilities__header">💸 На 15%</div>
-					<div className="posibilities__title">Скорочує витрати</div>
-					<p className="posibilities__text">
-						не потрібно використовувати неефектине PDF або друковане меню
-					</p>
-				</div>
-				<div className="posibilities__item">
-					<div className="posibilities__header">😍 На 30%</div>
-					<div className="posibilities__title">Збільшує середній чек</div>
-					<p className="posibilities__text">
-						фото, відео, детальні описи продають значно краще
-					</p>
-				</div>
+				{possibilities?.dataContent.map((item) => {
+					return (
+						<div className="posibilities__item">
+							<div className="posibilities__header">{item.percent}</div>
+							<div className="posibilities__title">{item.title}</div>
+							<p className="posibilities__text">{item.content}</p>
+						</div>
+					);
+				})}
 			</div>
 		</section>
 	);

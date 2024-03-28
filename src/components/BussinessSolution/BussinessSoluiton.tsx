@@ -1,58 +1,63 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import { BusinessSolutionItem } from "./BusinnesSolutionItem";
 import "./businessSolution.scss";
 import businessImg from "../../assets/images/businness1.png";
 import businessImg2 from "../../assets/images/businness2.png";
 import businessImg3 from "../../assets/images/businness3.png";
+import { DataContext } from "../../context/ContextData";
+import { useLocation } from "react-router-dom";
 
 interface Props {
-	title: string;
 	isSite: boolean;
 	isCoffeeShop: boolean;
 	isApp: boolean;
 }
 
 export const BusinessSolution: FC<Props> = ({
-	title,
 	isSite,
 	isCoffeeShop,
 	isApp,
 }) => {
+	const { solution } = useContext(DataContext)!;
+	const location = useLocation();
+
+	const title =
+		location.pathname === "/"
+			? solution.homePage.mainTitle
+			: solution.otherPage.mainTitle;
+
 	return (
 		<section className="s-business" id="solution">
 			<h2 className="businnes-title">{title}</h2>
 			<div className="business-item-wrapper">
 				{isApp && (
 					<BusinessSolutionItem
-						presentationUrl="https://drive.google.com/file/d/1KsuyObiszlATOx_4fFfNbkCgXr84HZPg/view"
-						title="Мобільний додаток для ресторану"
-						subTitle="Не потрібно чекати кілька місяців,
-           щоб розробити додаток. Ми допоможемо запустити додаток за 5 днів"
-						picture={businessImg}
-						link="/app"
-						background="#F6F6F6"
+						presentationUrl={solution.appBlock.presentationUrl}
+						title={solution.appBlock.title}
+						subTitle={solution.appBlock.description}
+						picture={solution.appBlock.picture}
+						link={solution.appBlock.link}
+						background={solution.appBlock.background}
 					/>
 				)}
 				{isSite && (
 					<BusinessSolutionItem
-						presentationUrl="https://drive.google.com/file/d/1KsuyObiszlATOx_4fFfNbkCgXr84HZPg/view"
-						title="Сайт для ресторану чи кафе"
-						subTitle="Тепер не треба співпрацювати з багатьма підрядниками, 
-          адже в E-app є все, що потрібне ресторану у сфері IT"
-						picture={businessImg2}
-						link="/site"
-						background="#F3F9FF"
+						presentationUrl={solution.siteBlock.presentationUrl}
+						title={solution.siteBlock.title}
+						subTitle={solution.siteBlock.description}
+						picture={solution.siteBlock.picture}
+						link={solution.siteBlock.link}
+						background={solution.siteBlock.background}
 					/>
 				)}
 				{isCoffeeShop && (
 					<BusinessSolutionItem
-						presentationUrl="https://drive.google.com/file/d/1KsuyObiszlATOx_4fFfNbkCgXr84HZPg/view"
-						title="Мобільний додаток для кав’ярні"
-						subTitle="Не потрібно чекати кілька місяців,
-           щоб розробити додаток. Ми допоможемо запустити додаток за 5 днів"
-						picture={businessImg3}
-						link="/coffeeshop"
-						background="#F3F9FF"
+						presentationUrl={solution.appBlock.presentationUrl}
+						title={solution.coffeeBlock.title}
+						subTitle={solution.coffeeBlock.description}
+						picture={solution.coffeeBlock.picture}
+						link={solution.coffeeBlock.link}
+						background={solution.coffeeBlock.background}
 					/>
 				)}
 			</div>

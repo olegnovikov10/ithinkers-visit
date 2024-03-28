@@ -1,39 +1,28 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import { ProductStepsItem } from "./ProductStepsItem";
 
 import "./productSteps.scss";
+import { DataContext } from "../../context/ContextData";
 
 export const ProductSteps: FC = () => {
+	const { developSteps } = useContext(DataContext)!;
 	return (
 		<section className="s-product-steps">
-			<div className="s-product-steps__title">
-				⚡️ Не потрібно чекати місяці, щоб розробити додаток чи сайт
-			</div>
+			<div className="s-product-steps__title">{developSteps.title}</div>
 			<div className="steps">
-				<ProductStepsItem
-					count="01"
-					title="Залишай заявку"
-					subTitle="Залиш свої контактні дані,
-і наші менеджери зв'яжуться з Вами для уточнення всіх питань"
-				/>
+				{developSteps.questions.map((item) => {
+					const { title, count, description } = item;
 
-				<ProductStepsItem
-					count="02"
-					title="Заповнюй анкету"
-					subTitle="Дай відповідь на питання у нашій анкеті про свій бізнес для запуску сайту та програми"
-				/>
+					return (
+						<ProductStepsItem
+							count={count}
+							title={title}
+							subTitle={description}
+						/>
+					);
+				})}
 
-				<ProductStepsItem
-					count="03"
-					title="Отримуй готовий додаток або сайт"
-					subTitle="Ми допомагаємо все підготувати: інтегрувати POS-систему, підключити платежі, налаштувати умови доставки і дизайн. Публікуємо додаток та сайт."
-				/>
-
-				<ProductStepsItem
-					isFooter
-					title="Запустимо сайт
-          та додаток разом?"
-				/>
+				<ProductStepsItem isFooter title={developSteps.startAppTitle} />
 			</div>
 		</section>
 	);

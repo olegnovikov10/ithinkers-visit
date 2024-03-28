@@ -1,10 +1,9 @@
-import { useContext, FC, ReactNode } from "react";
-import {} from "../../Context";
-import { MyContext } from "../../Context";
+import { useContext, FC } from "react";
+import { MyContext } from "../../context/Context";
 import "./button.scss";
 
 interface Props {
-	children: ReactNode;
+	children: string;
 	cName: string;
 }
 

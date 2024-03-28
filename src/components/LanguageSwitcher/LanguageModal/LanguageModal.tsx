@@ -1,34 +1,18 @@
-import { FC, useState } from "react";
+import { FC, useState, useTransition } from "react";
 import Select from "react-select";
 
 import "./languageModal.scss";
-
-interface LanguageOption {
-	value: string;
-	label: string;
-}
-
-const options: LanguageOption[] = [
-	{ value: "ua", label: "Украінська" },
-	{ value: "en", label: "England" },
-	{ value: "pl", label: "Poland" },
-	{ value: "ru", label: "Русский" },
-];
-
-interface ControlStyles {
-	minWidth?: string;
-}
+import { LanguageSwitcher } from "../LanguageSwitcher";
+import { useTranslation } from "react-i18next";
 
 export const LanguageModal: FC = () => {
-	const [selectedOption, setSelectedOption] = useState<LanguageOption | null>(
-		options[0]
-	);
-
+	const { t } = useTranslation();
 	return (
 		<div className="language-modal">
-			<div className="language-modal__text">Мова</div>
+			<div className="language-modal__text">{t("languages.title")}</div>
 			<div className="wrapprer-languages">
-				<Select
+				<LanguageSwitcher isFullLabel />
+				{/* <Select
 					defaultValue={selectedOption}
 					onChange={setSelectedOption}
 					options={options}
@@ -45,7 +29,7 @@ export const LanguageModal: FC = () => {
 							primary: "black",
 						},
 					})}
-				/>
+				/> */}
 			</div>
 		</div>
 	);

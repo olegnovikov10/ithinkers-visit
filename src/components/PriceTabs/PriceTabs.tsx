@@ -1,145 +1,41 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useContext, useEffect, useState, useTransition } from "react";
 import cn from "classnames";
 
 import "./priceTabs.scss";
 import { Button } from "../Button";
+import { DataContext } from "../../context/ContextData";
+import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 interface Props {
 	typeName?: "phone" | "site" | "cafe";
 }
 
-interface ITab {
-	id: string;
-	title: string;
-	content: {
-		id: string;
-		month: string;
-		desciption: string;
-		fullPeriod?: string;
-	}[];
-}
+export const PriceTabs: FC<Props> = () => {
+	const { t } = useTranslation();
 
-const tabs: Array<ITab> = [
-	{
-		id: "phone",
-		title: "Мобільний додаток",
-		content: [
-			{
-				id: "month",
-				month: "1135$",
-				desciption: "Місячна",
-			},
-			{
-				id: "halfyear",
-				month: "95$",
-				fullPeriod: "570$",
-				desciption: "на 6 місяців",
-			},
-			{
-				id: "year",
-				month: "90$",
-				fullPeriod: "1080$",
-				desciption: "На рік",
-			},
-			{
-				id: "twoYear",
-				month: "14$",
-				fullPeriod: "1800$",
-				desciption: "2 роки",
-			},
-		],
-	},
-	{
-		id: "site",
-		title: "Сайт",
-		content: [
-			{
-				id: "month",
-				month: "1135$",
-				desciption: "Місячна",
-			},
-			{
-				id: "halfyear",
-				month: "95$",
-				fullPeriod: "570$",
-				desciption: "на 6 місяців",
-			},
-			{
-				id: "year",
-				month: "90$",
-				fullPeriod: "1080$",
-				desciption: "На рік",
-			},
-			{
-				id: "twoYear",
-				month: "75$",
-				fullPeriod: "1800$",
-				desciption: "2 роки",
-			},
-		],
-	},
-	{
-		id: "cafe",
-		title: "Додаток для кав’ярні",
-		content: [
-			{
-				id: "month",
-				month: "133$",
-				desciption: "Місячна",
-			},
-			{
-				id: "halfyear",
-				month: "95$",
-				fullPeriod: "570$",
-				desciption: "на 6 місяців",
-			},
-			{
-				id: "year",
-				month: "90$",
-				fullPeriod: "1080$",
-				desciption: "На рік",
-			},
-			{
-				id: "twoYear",
-				month: "75$",
-				fullPeriod: "1800$",
-				desciption: "2 роки",
-			},
-		],
-	},
-];
+	const { price } = useContext(DataContext)!;
 
-export const PriceTabs: FC<Props> = ({ typeName }) => {
-	const [isTabs, setIsTabs] = useState<boolean>(false);
-	const [tabsData] = useState(tabs);
-	const [selectedTabId, setSelectedTabId] = useState(tabsData[0].id);
+	const location = useLocation();
 
-	const [contentType, setContentType] = useState<any>([...tabs]);
-
-	useEffect(() => {
-		if (typeName) {
-			setIsTabs(false);
-
-			const result = tabsData.filter((tab) => {
-				return tab.id === typeName;
-			});
-
-			setContentType(result);
-		} else {
-			setIsTabs(true);
-		}
-	}, []);
+	const [selectedTabId, setSelectedTabId] = useState(price.data[0].id);
 
 	let selectedTab =
-		tabsData.find((tab) => tab.id === selectedTabId) || tabsData[0];
+		price.data.find((tab) => tab.id === selectedTabId) || price.data[0];
+
+	const isHomePage = location.pathname === "/";
+
+	let filterContentData =
+		price.data.find((tab) => tab.id === location.pathname.slice(1)) ||
+		price.data[0];
 
 	return (
 		<section className="s-price-tabs" id="price">
-			<h2 className="s-price-tabs__title">Ціна</h2>
+			<h2 className="s-price-tabs__title">{price.title}</h2>
 			<div className="price-tabs">
-				{isTabs && (
+				{isHomePage && (
 					<ul className="price-tabs__header">
-						{tabsData.map((tab: ITab) => {
+						{price.data.map((tab) => {
 							return (
 								<li
 									className={cn("price-tabs__name", {
@@ -162,31 +58,30 @@ export const PriceTabs: FC<Props> = ({ typeName }) => {
 				)}
 
 				<div className="price-tabs__content">
-					{(!isTabs && contentType.length > 0
-						? contentType[0].content
-						: selectedTab.content
-					).map((item: any) => (
-						<div key={item.id} className="price-tabs__content-item">
-							<div className="price-tabs__content-desciption">
-								{item.desciption}
-							</div>
-							<div className="price-tabs__content-price">{item.month}</div>
-							{item.fullPeriod && (
-								<div className="price-tabs__content-price-all">
-									{item.fullPeriod}
+					{(!isHomePage ? filterContentData.content : selectedTab.content).map(
+						(item: any) => (
+							<div key={item.id} className="price-tabs__content-item">
+								<div className="price-tabs__content-desciption">
+									{item.desciption}
 								</div>
-							)}
-						</div>
-					))}
+								<div className="price-tabs__content-price">{item.month}</div>
+								{item.fullPeriod && (
+									<div className="price-tabs__content-price-all">
+										{item.fullPeriod}
+									</div>
+								)}
+							</div>
+						)
+					)}
 				</div>
 
-				<p className="price-tabs__footer">*Ціна відображена за точку</p>
+				<p className="price-tabs__footer">{price.footer}</p>
 
-				{!isTabs && (
+				{!isHomePage && (
 					<div className="order-app">
-						<div className="order-app__title">Запустимо сайт?</div>
+						<div className="order-app__title">{t("price.startApp")}</div>
 						<Button cName="btn button--black order-app__btn">
-							Залишити заявку
+							{t("buttonTextRequest")}
 						</Button>
 					</div>
 				)}

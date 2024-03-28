@@ -1,0 +1,61 @@
+@import "../../../styles/utils/vars.scss";
+@import "../../../styles/utils/mixins.scss";
+
+.s-potential-clients{ 
+    padding: 30px 0;
+    &__title{
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 30px;
+
+        @include onTablet{
+            text-align: center;
+        }
+
+        @include onDesktop1200{
+            font-size: 32px;
+        }
+    }
+}
+
+.potential-clients{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    @include onTablet {
+        flex-direction: row;
+        gap: 16px;
+        justify-content: center;
+    }
+
+
+
+    &__item{
+        padding:32px 24px;
+        background-color: #F6F6F6;
+
+        &:last-child{
+            @include onDesktop1200 {
+            max-width: none;
+            flex-grow: 1;
+          }
+        }
+        
+        @include onTablet {
+            max-width: 282px;
+            
+        }
+
+
+    }
+
+    &__header{
+        margin-bottom: 16px;
+    }
+
+    &__title{
+        font-size: 20px;
+    }
+}

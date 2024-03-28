@@ -43,9 +43,9 @@ export const PhoneInput: React.FC<Props> = ({
 				onBlur={field.onBlur}
 				className="main-form__input phone-input"
 			/>
-			{meta.touched && meta.error ? (
-				<div className="error">{meta.error}</div>
-			) : null}
+			{/* {meta.touched && meta.error ? ( */}
+			{/* <div className="error">{meta.error}</div> */}
+			{/* ) : null} */}
 		</div>
 	);
 };

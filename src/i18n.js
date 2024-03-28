@@ -6,15 +6,21 @@ import { initReactI18next } from 'react-i18next';
 i18n
   // load translation using http -> see /public/locales
   // learn more: https://github.com/i18next/i18next-http-backend
-  .use(Backend)
+  
   // // detect user language
   // // learn more: https://github.com/i18next/i18next-browser-languageDetector
   .use(LanguageDetector)
   .use(initReactI18next)
+  .use(Backend)
   .init({
-    lng: 'ua',
-    fallbackLng: 'ua',
+    lng: 'uk',
+    fallbackLng: 'uk',
     debug: true,
+
+    react: {
+      defaultTransParent: 'div', // needed for preact
+      wait: true,
+    },
   });
 
 export default i18n;
