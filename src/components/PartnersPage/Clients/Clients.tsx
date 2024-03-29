@@ -1,79 +1,28 @@
 import { FC } from "react";
 
 import "./clients.scss";
+import { PotentialClients } from "../../../context/ContextData";
 
-interface Props {}
+interface Props {
+	data: PotentialClients;
+}
 
-export const Clients: FC<Props> = () => {
+export const Clients: FC<Props> = ({ data }) => {
 	return (
 		<section className="s-potential-clients">
-			<div className="s-potential-clients__title">
-				Для кого підійде партнерська програма
-			</div>
+			<div className="s-potential-clients__title">{data.title}</div>
 
 			<div className="potential-clients">
-				<div className="potential-clients__item">
-					<div className="potential-clients__header">
-						<img src="" alt="" />
-					</div>
-					<div className="potential-clients__title">
-						Власники закладів харчування
-					</div>
-				</div>
-
-				<div className="potential-clients__item">
-					<div className="potential-clients__header">
-						<img src="" alt="" />
-					</div>
-					<div className="potential-clients__title">
-						Власники закладів харчування
-					</div>
-				</div>
-
-				<div className="potential-clients__item">
-					<div className="potential-clients__header">
-						<img src="" alt="" />
-					</div>
-					<div className="potential-clients__title">
-						Власники закладів харчування
-					</div>
-				</div>
-
-				<div className="potential-clients__item">
-					<div className="potential-clients__header">
-						<img src="" alt="" />
-					</div>
-					<div className="potential-clients__title">
-						Власники закладів харчування
-					</div>
-				</div>
-
-				<div className="potential-clients__item">
-					<div className="potential-clients__header">
-						<img src="" alt="" />
-					</div>
-					<div className="potential-clients__title">
-						Власники закладів харчування
-					</div>
-				</div>
-
-				<div className="potential-clients__item">
-					<div className="potential-clients__header">
-						<img src="" alt="" />
-					</div>
-					<div className="potential-clients__title">
-						Власники закладів харчування
-					</div>
-				</div>
-
-				<div className="potential-clients__item">
-					<div className="potential-clients__header">
-						<img src="" alt="" />
-					</div>
-					<div className="potential-clients__title">
-						Власники закладів харчування
-					</div>
-				</div>
+				{data.data.map((item) => {
+					return (
+						<div className="potential-clients__item">
+							<div className="potential-clients__header">
+								<img src={item.img} alt="" />
+							</div>
+							<div className="potential-clients__title">{item.title}</div>
+						</div>
+					);
+				})}
 			</div>
 		</section>
 	);

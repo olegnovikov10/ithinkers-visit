@@ -35,17 +35,16 @@
     &__item{
         padding:32px 24px;
         background-color: #F6F6F6;
+        width: 100%;
 
         &:last-child{
-            @include onDesktop1200 {
-            max-width: none;
+            @include onTablet {
             flex-grow: 1;
           }
         }
         
-        @include onTablet {
-            max-width: 282px;
-            
+        @include onDesktop1200 {
+            width: 282px;
         }
 
 

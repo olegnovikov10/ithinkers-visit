@@ -7,6 +7,53 @@ import { ProductSteps } from "../components/ProductSteps";
 
 // Определение типа для контекста
 
+export interface PartnersBanner {
+	title: string;
+	description: string;
+}
+
+export interface ProgramData {
+	count: string;
+	title: string;
+	description: string;
+}
+
+interface JoinUs {
+	firstTitle: string;
+	secondTitle: string;
+}
+
+export interface Program {
+	title: string;
+	data: ProgramData[];
+}
+
+export interface PotentialClients {
+	title: string;
+	data: { title: string; img: string }[];
+}
+
+interface WhyUsContent {
+	title: string;
+	description?: string; // Description is optional
+	img: string;
+}
+
+export interface WhyUs {
+	title: string;
+	description: string;
+	data: WhyUsContent[];
+}
+
+interface PartnersData {
+	banner: PartnersBanner;
+	buttonTextRequest: string;
+	joinUs: JoinUs;
+	program: Program;
+	potentialClients: PotentialClients;
+	whyUs: WhyUs;
+}
+
 interface AdvantageItem {
 	title: string;
 	description: string;
@@ -253,6 +300,7 @@ interface DataContextType {
 	possibilities: Possibilities;
 	functionality: Functionality;
 	advantages: Advantages;
+	partnersData: PartnersData;
 }
 
 interface Props {
@@ -265,6 +313,118 @@ export const DataContext = createContext<DataContextType | undefined>(
 
 export const DataContextProvider: React.FC<Props> = ({ children }) => {
 	const { t } = useTranslation();
+
+	const partnersData = {
+		banner: {
+			title: t("referal-program.banner.title"),
+			description: t("referal-program.banner.description"),
+		},
+		buttonTextRequest: t("referal-program.buttonTextRequest"),
+		joinUs: {
+			firstTitle: t("referal-program.joinUs.firstTitle"),
+			secondTitle: t("referal-program.joinUs.secondTitle"),
+		},
+		program: {
+			title: t("referal-program.program.title"),
+			data: [
+				{
+					count: t("referal-program.program.first.count"),
+					title: t("referal-program.program.first.title"),
+					description: t("referal-program.program.first.description"),
+				},
+				{
+					count: t("referal-program.program.second.count"),
+					title: t("referal-program.program.second.title"),
+					description: t("referal-program.program.second.description"),
+				},
+				{
+					count: t("referal-program.program.third.count"),
+					title: t("referal-program.program.third.title"),
+					description: t("referal-program.program.third.description"),
+				},
+				{
+					count: t("referal-program.program.fourth.count"),
+					title: t("referal-program.program.fourth.title"),
+					description: t("referal-program.program.fourth.description"),
+				},
+			],
+		},
+		potentialClients: {
+			title: t("referal-program.potential-clients.title"),
+			data: [
+				{
+					title: t("referal-program.potential-clients.first.title"),
+					img: images.potentialClient,
+				},
+				{
+					title: t("referal-program.potential-clients.second.title"),
+					img: images.potentialClient2,
+				},
+				{
+					title: t("referal-program.potential-clients.third.title"),
+					img: images.potentialClient3,
+				},
+				{
+					title: t("referal-program.potential-clients.fourth.title"),
+					img: images.potentialClient4,
+				},
+				{
+					title: t("referal-program.potential-clients.fifth.title"),
+					img: images.potentialClient5,
+				},
+				{
+					title: t("referal-program.potential-clients.sixth.title"),
+					img: images.potentialClient6,
+				},
+				{
+					title: t("referal-program.potential-clients.seventh.title"),
+					img: images.potentialClient7,
+				},
+			],
+		},
+
+		whyUs: {
+			title: t("referal-program.whyUs.title"),
+			description: t("referal-program.whyUs.description"),
+			data: [
+				{
+					title: t("referal-program.whyUs.content.first.title"),
+					description: t("referal-program.whyUs.content.first.description"),
+					img: images.whyUs,
+				},
+				{
+					title: t("referal-program.whyUs.content.second.title"),
+					img: images.whyUs2,
+				},
+				{
+					title: t("referal-program.whyUs.content.third.title"),
+					description: t("referal-program.whyUs.content.third.description"),
+					img: images.whyUs3,
+				},
+				{
+					title: t("referal-program.whyUs.content.fourth.title"),
+					description: t("referal-program.whyUs.content.fourth.description"),
+					img: images.whyUs4,
+				},
+				{
+					title: t("referal-program.whyUs.content.fifth.title"),
+					img: images.whyUs5,
+				},
+				{
+					title: t("referal-program.whyUs.content.sixth.title"),
+					img: images.whyUs6,
+				},
+				{
+					title: t("referal-program.whyUs.content.seventh.title"),
+					img: images.whyUs7,
+				},
+				{
+					title: t("referal-program.whyUs.content.eighth.title"),
+					img: images.whyUs8,
+				},
+			],
+		},
+	};
 
 	const advantages = {
 		title: t("advantages.title"),
@@ -1122,6 +1282,7 @@ export const DataContextProvider: React.FC<Props> = ({ children }) => {
 		possibilities,
 		functionality,
 		advantages,
+		partnersData,
 	};
 
 	return (

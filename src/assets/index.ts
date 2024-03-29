@@ -50,8 +50,40 @@ import iconSushi from "./images/app-preview/icon-sush.png";
 import iconBurger from "./images/app-preview/icon-burger.png";
 import iconUkr from "./images/ua.png";
 
+import potentialClient from './images/partners-page/client.png';
+import potentialClient2 from './images/partners-page/client2.png';
+import potentialClient3 from './images/partners-page/client3.png';
+import potentialClient4 from './images/partners-page/client4.png';
+import potentialClient5 from './images/partners-page/client5.png';
+import potentialClient6 from './images/partners-page/client6.png';
+import potentialClient7 from './images/partners-page/client7.png';
+
+import whyUs from "./images/partners-page/whyus.png"
+import whyUs2 from "./images/partners-page/whyus2.png"
+import whyUs3 from "./images/partners-page/whyus3.png"
+import whyUs4 from "./images/partners-page/whyus4.png"
+import whyUs5 from "./images/partners-page/whyus5.png"
+import whyUs6 from "./images/partners-page/whyus6.png"
+import whyUs7 from "./images/partners-page/whyus7.png"
+import whyUs8 from "./images/partners-page/whyus8.png"
+
 
 const images = {
+    whyUs,
+    whyUs2,
+    whyUs3, 
+    whyUs4,
+    whyUs5,
+    whyUs6,
+    whyUs7,
+    whyUs8,
+    potentialClient,
+    potentialClient2,
+    potentialClient3,
+    potentialClient4,
+    potentialClient5,
+    potentialClient6,
+    potentialClient7,
     sushi,
     burger,
     hata,

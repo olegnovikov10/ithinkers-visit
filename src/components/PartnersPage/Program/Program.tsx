@@ -1,50 +1,27 @@
 import { FC } from "react";
 
 import "./program.scss";
+import { Program as Prg } from "../../../context/ContextData";
 
-interface Props {}
+interface Props {
+	data: Prg;
+}
 
-export const Program: FC<Props> = () => {
+export const Program: FC<Props> = ({ data }) => {
 	return (
 		<section className="program">
-			<div className="program__title">Як працює партнерська програма</div>
+			<div className="program__title">{data.title}</div>
 
 			<div className="program-steps">
-				<div className="program-steps__item">
-					<div className="program-steps__header">01</div>
-					<div className="program-steps__title">Зареєструйтеся</div>
-					<div className="program-steps__content">
-						Залиште номер телефону, з вами зв'яжеться менеджер та розповість про
-						всі умови співпраці
-					</div>
-				</div>
-
-				<div className="program-steps__item">
-					<div className="program-steps__header">02</div>
-					<div className="program-steps__title">Зареєструйтеся</div>
-					<div className="program-steps__content">
-						Залиште номер телефону, з вами зв'яжеться менеджер та розповість про
-						всі умови співпраці
-					</div>
-				</div>
-
-				<div className="program-steps__item">
-					<div className="program-steps__header">03</div>
-					<div className="program-steps__title">Зареєструйтеся</div>
-					<div className="program-steps__content">
-						Залиште номер телефону, з вами зв'яжеться менеджер та розповість про
-						всі умови співпраці
-					</div>
-				</div>
-
-				<div className="program-steps__item">
-					<div className="program-steps__header">04</div>
-					<div className="program-steps__title">Зареєструйтеся</div>
-					<div className="program-steps__content">
-						Залиште номер телефону, з вами зв'яжеться менеджер та розповість про
-						всі умови співпраці
-					</div>
-				</div>
+				{data.data.map((item) => {
+					return (
+						<div className="program-steps__item">
+							<div className="program-steps__header">{item.count}</div>
+							<div className="program-steps__title">{item.title}</div>
+							<div className="program-steps__content">{item.description}</div>
+						</div>
+					);
+				})}
 			</div>
 		</section>
 	);
