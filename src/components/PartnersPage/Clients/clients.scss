@@ -7,10 +7,7 @@
         font-size: 20px;
         font-weight: 500;
         margin-bottom: 30px;
-
-        @include onTablet{
-            text-align: center;
-        }
+        text-align: center;
 
         @include onDesktop1200{
             font-size: 32px;

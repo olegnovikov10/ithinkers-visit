@@ -25,7 +25,7 @@ export const MobileMenu: FC<Props> = ({ isOpenMenu, handleOpenMenu }) => {
 				<Menu handleOpenMenu={handleOpenMenu} />
 			</div>
 			<div className="language-mobile-wrap">
-				<LanguageModal />
+				<LanguageModal menuOpenUp={true} />
 			</div>
 		</div>
 	);

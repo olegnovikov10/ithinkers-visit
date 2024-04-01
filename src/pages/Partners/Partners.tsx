@@ -6,6 +6,7 @@ import { Program } from "../../components/PartnersPage/Program/Program";
 import { Clients } from "../../components/PartnersPage/Clients";
 import { WhyUs } from "../../components/PartnersPage/WhyUs/WhyUs";
 import { DataContext } from "../../context/ContextData";
+import { Advantages } from "../../components/PartnersPage/Advantages";
 
 export const Partners: FC = () => {
 	const { partnersData } = useContext(DataContext)!;
@@ -17,6 +18,7 @@ export const Partners: FC = () => {
 				<Banner data={partnersData.banner} />
 			</div>
 			<div className="main-container">
+				<Advantages data={partnersData.advantages} />
 				<StartWork title={partnersData.joinUs.firstTitle} />
 				<Program data={partnersData.program} />
 				<Clients data={partnersData.potentialClients} />

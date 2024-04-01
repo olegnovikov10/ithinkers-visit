@@ -6,6 +6,9 @@ import { PhoneInput } from "./PhoneIput";
 import { FieldProps } from "formik";
 import * as Yup from "yup";
 
+import PhoneInputR from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+
 interface Props {}
 
 const SignupSchema = Yup.object().shape({
@@ -13,7 +16,7 @@ const SignupSchema = Yup.object().shape({
 		.min(2, "Введіть більше символів")
 		.required("Це обовʼязкове поле"),
 	phone: Yup.string()
-		.min(2, "Введіть більше символів")
+		.min(5, "Введіть більше символів")
 		.required("Це обовʼязкове поле"),
 });
 
@@ -44,11 +47,19 @@ export const MainForm: FC<Props> = () => {
 							{errors.name && touched.name ? <div>{errors.name}</div> : null}
 
 							<Field name="phone">
-								{(props: FieldProps<string>) => (
-									<PhoneInput
-										country="UA"
-										placeholder="380 99 999 99"
-										{...props.field}
+								{({ field, form }: FieldProps<string>) => (
+									<PhoneInputR
+										inputClass="main-form__input"
+										containerClass="main-form__input-phone-container"
+										buttonClass="main-form__icon-phone"
+										country={"ua"}
+										onlyCountries={["ua", "gb", "pl", "ru"]}
+										value={field.value}
+										onChange={(value: string) =>
+											form.setFieldValue(field.name, value)
+										}
+										onBlur={field.onBlur}
+										inputProps={{ name: "phone" }}
 									/>
 								)}
 							</Field>

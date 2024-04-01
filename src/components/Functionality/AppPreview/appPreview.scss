@@ -56,9 +56,7 @@
 .app-preview-item {
 	display: flex;
 	gap: 8px;
-	&__left {
-	}
-
+	
 	&__icon{
 		height: 20px;
 	}
@@ -69,7 +67,7 @@
 		border-radius: 6px;
 		padding: 4px 6px;
 		background-color: #e8e8e8;
-		display: flex;
+		display: inline-flex;
 		align-items: center;
 		gap: 5px;
 		margin-bottom: 8px;

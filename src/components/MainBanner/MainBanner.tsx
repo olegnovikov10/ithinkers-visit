@@ -12,7 +12,7 @@ interface Props {
 export const MainBanner: FC<Props> = ({ title, description }) => {
 	const { t } = useTranslation();
 
-	const buttonText = t("buttonOpenModal");
+	const buttonText = t("buttonTextRequest");
 	return (
 		<div className="main-banner">
 			<div className="main-banner__left">

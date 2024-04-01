@@ -9,9 +9,10 @@ import { LanguageOption } from "../../types";
 
 interface Props {
 	isFullLabel?: boolean;
+	menuOpenUp?: boolean;
 }
 
-export const LanguageSwitcher: FC<Props> = ({ isFullLabel }) => {
+export const LanguageSwitcher: FC<Props> = ({ isFullLabel, menuOpenUp }) => {
 	const { changeLanguage } = useContext(MyContext)!;
 	const { optionsLng } = useContext(DataContext)!;
 
@@ -41,7 +42,7 @@ export const LanguageSwitcher: FC<Props> = ({ isFullLabel }) => {
 			className="wrapprer-languages-select"
 			classNamePrefix="wrapprer-languages"
 			options={optionsLng}
-			menuPlacement="auto"
+			menuPlacement={menuOpenUp ? "top" : "auto"}
 			isSearchable={false}
 			theme={(theme) => ({
 				...theme,

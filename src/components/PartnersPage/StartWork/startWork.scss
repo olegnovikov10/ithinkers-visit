@@ -6,9 +6,11 @@
     background-position: center;
     border-radius: 24px;
     padding: 32px;
+    margin: 10px 0;
 
     &__title{
         margin-bottom: 20px;
+        font-size: 24px;
 
         @include onDesktop1200{
             text-align: center;
@@ -32,6 +34,11 @@
         gap: 20px;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
+
+        @include onTablet {
+            flex-direction: row;
+        }
 
     }
 }

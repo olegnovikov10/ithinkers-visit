@@ -4,6 +4,7 @@ import { LanguageOption } from "../types";
 
 import images from "../assets";
 import { ProductSteps } from "../components/ProductSteps";
+import exp from "constants";
 
 // Определение типа для контекста
 
@@ -21,6 +22,17 @@ export interface ProgramData {
 interface JoinUs {
 	firstTitle: string;
 	secondTitle: string;
+}
+
+interface AdvantageItemPartners {
+	header: string;
+	title: string;
+	description: string;
+}
+
+export interface AdvantagesPartners {
+	title: string;
+	data: AdvantageItemPartners[];
 }
 
 export interface Program {
@@ -52,6 +64,7 @@ interface PartnersData {
 	program: Program;
 	potentialClients: PotentialClients;
 	whyUs: WhyUs;
+	advantages: AdvantagesPartners;
 }
 
 interface AdvantageItem {
@@ -140,6 +153,7 @@ export interface Possibilities {
 interface MenuItem {
 	title: string;
 	href: string;
+	type?: string;
 }
 
 interface FooterContact {
@@ -323,6 +337,35 @@ export const DataContextProvider: React.FC<Props> = ({ children }) => {
 		joinUs: {
 			firstTitle: t("referal-program.joinUs.firstTitle"),
 			secondTitle: t("referal-program.joinUs.secondTitle"),
+		},
+		advantages: {
+			title: t("referal-program.advantages.title"),
+			data: [
+				{
+					header: "💸",
+					title: "Стабільні виплати",
+					description:
+						"Виплачуємо щомісяця 10% платежів від приведених вами користувачів E-app",
+				},
+				{
+					header: "🤝🏻",
+					title: "Підтримка",
+					description:
+						"Допоможемо у вирішенні будь-яких питань та надамо всі матеріали",
+				},
+				{
+					header: "👍🏻",
+					title: "Нас рекомендують",
+					description:
+						"Клієнти та партнери нас рекомендують, як надійного розробника",
+				},
+				{
+					header: "❤️",
+					title: "Ніяких турбот",
+					description:
+						"Ви тільки рекомендуєте клієнтам наш сервіс, а продажу робимо ми!",
+				},
+			],
 		},
 		program: {
 			title: t("referal-program.program.title"),
@@ -929,6 +972,7 @@ export const DataContextProvider: React.FC<Props> = ({ children }) => {
 		{
 			title: t("header.menu.partners"),
 			href: "/referral-program",
+			type: "link-router",
 		},
 	];
 

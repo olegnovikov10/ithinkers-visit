@@ -5,13 +5,17 @@ import "./languageModal.scss";
 import { LanguageSwitcher } from "../LanguageSwitcher";
 import { useTranslation } from "react-i18next";
 
-export const LanguageModal: FC = () => {
+interface Props {
+	menuOpenUp?: boolean;
+}
+
+export const LanguageModal: FC<Props> = ({ menuOpenUp }) => {
 	const { t } = useTranslation();
 	return (
 		<div className="language-modal">
 			<div className="language-modal__text">{t("languages.title")}</div>
 			<div className="wrapprer-languages">
-				<LanguageSwitcher isFullLabel />
+				<LanguageSwitcher isFullLabel menuOpenUp />
 				{/* <Select
 					defaultValue={selectedOption}
 					onChange={setSelectedOption}
