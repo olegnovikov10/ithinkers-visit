@@ -14,9 +14,9 @@ export const WhyUs: FC<Props> = ({ data }) => {
 			<div className="s-why-us__description">{data.description}</div>
 
 			<div className="why-us">
-				{data.data.map((item) => {
+				{data.data.map((item, i) => {
 					return (
-						<div className="why-us__item">
+						<div key={`${item}${i}`} className="why-us__item">
 							<div className="why-us__header">
 								<img src={item.img} alt="" />
 							</div>

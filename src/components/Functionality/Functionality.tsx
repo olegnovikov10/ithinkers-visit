@@ -4,12 +4,11 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import img from "../../assets/images/functionality.png";
 
-import prevImg from "../../assets/images/prev.png";
-import nextImg from "../../assets/images/next.png";
+import prevImg from "../../assets/images/prev.webp";
+import nextImg from "../../assets/images/next.webp";
 
-import iconDown from "../../assets/images/icon-down.png";
+import iconDown from "../../assets/images/icon-down.webp";
 
 import "./functionality.scss";
 

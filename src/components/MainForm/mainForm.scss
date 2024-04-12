@@ -3,7 +3,7 @@
 	&__inputs-wrap {
 		display: flex;
 		flex-direction: column;
-		margin-bottom: 24px;
+		margin-bottom: 17px;
 		gap: 8px;
 	}
 
@@ -11,30 +11,34 @@
 		margin-bottom: 18px;
 	}
 
-	&__input-phone-container .main-form__input{
+	&__input-phone-container .main-form__input {
 		padding-left: 60px !important;
 	}
 
 	&__input {
 		background-color: #fff !important;
-    	padding: 0 20px;
-    	border-radius: 8px !important;
-    	border: none !important;
-    	height: 56px !important;
-    	width: 100% !important;
-    	font-size: 20px !important;
-    	color: #7b7b7b;
+		padding: 0 20px;
+		border-radius: 8px !important;
+		border: none !important;
+		height: 56px !important;
+		width: 100% !important;
+		font-size: 20px !important;
+		color: #7b7b7b;
 
 		&::placeholder {
 			font-size: 20px;
 			color: #7b7b7b;
 		}
+	}
 
-		
+	&__error {
+		font-size: 12px;
+		line-height: 16px;
+		color: #2e2e2b;
 	}
 
 	&__icon-phone {
-		border: none  !important;
+		border: none !important;
 		background: #fff !important;
 
 		& > div {

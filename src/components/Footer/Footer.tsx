@@ -2,16 +2,8 @@ import { FC, useContext } from "react";
 
 import { MainForm } from "../MainForm/MainForm";
 
-import icons1 from "../../assets/images/numbers-icon.png";
-import icons2 from "../../assets/images/viber-icon.png";
-import icons3 from "../../assets/images/telegramm-icn.png";
-import icons4 from "../../assets/images/mail-icon.png";
-import icons5 from "../../assets/images/facebook-icon.png";
-import icons6 from "../../assets/images/instagramm-icon.png";
-
 import "./footer.scss";
 import { LanguageModal } from "../LanguageSwitcher/LanguageModal/LanguageModal";
-import { Link } from "react-router-dom";
 import { DataContext } from "../../context/ContextData";
 
 interface Props {}
@@ -31,10 +23,10 @@ export const Footer: FC<Props> = () => {
 					<div className="feedbacks__phones-wrap">
 						<div className="feedbacks__phones">
 							<div className="feedbacks__icons">
-								<a href="/#">
+								<a href={`tel:${ftr.contactUs.phoneOne}`}>
 									<img src={ftr.contactUs.iconNumber} alt="" />
 								</a>
-								<a href="/#">
+								<a href={`viber://add?number=${ftr.contactUs.phoneOne}`}>
 									<img src={ftr.contactUs.iconViber} alt="" />
 								</a>
 								<a href="/#">

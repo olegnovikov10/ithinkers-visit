@@ -14,7 +14,7 @@ export const OurClients: FC<Props> = () => {
 			const importedImages: string[] = [];
 			for (let i = 1; i <= 70; i++) {
 				const image = (
-					await import(`../../assets/images/clients/clients${i}.png`)
+					await import(`../../assets/images/clients/clients${i}.webp`)
 				).default;
 				importedImages.push(image);
 			}

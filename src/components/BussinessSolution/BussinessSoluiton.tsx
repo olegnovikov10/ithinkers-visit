@@ -1,11 +1,10 @@
 import { FC, useContext } from "react";
 import { BusinessSolutionItem } from "./BusinnesSolutionItem";
-import "./businessSolution.scss";
-import businessImg from "../../assets/images/businness1.png";
-import businessImg2 from "../../assets/images/businness2.png";
-import businessImg3 from "../../assets/images/businness3.png";
+
 import { DataContext } from "../../context/ContextData";
 import { useLocation } from "react-router-dom";
+
+import "./businessSolution.scss";
 
 interface Props {
 	isSite: boolean;

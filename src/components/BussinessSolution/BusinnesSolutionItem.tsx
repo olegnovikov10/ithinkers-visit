@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 interface Props {
 	title: string;
@@ -7,7 +7,7 @@ interface Props {
 	link: string;
 	presentationUrl?: string;
 	picture: string;
-	icon?: any;
+	icon?: string;
 	background: string;
 }
 
@@ -19,13 +19,22 @@ export const BusinessSolutionItem: FC<Props> = ({
 	picture,
 	background,
 }) => {
+	const { lang } = useParams();
+
+	let prefixedLink;
+
+	prefixedLink = lang === undefined ? link : `/${lang}${link}`;
+
 	return (
 		<div className="business-solution-item" style={{ background: background }}>
 			<div className="business-solution-item__left">
 				<h3 className="h3 business-solution-item__title">{title}</h3>
 				<div className="business-solution-item__sub-title">{subTitle}</div>
 				<div className="business-solution-item__links">
-					<Link to={link} className="business-solution-item__link-detail">
+					<Link
+						to={prefixedLink}
+						className="business-solution-item__link-detail"
+					>
 						Детальніше
 					</Link>
 					<a

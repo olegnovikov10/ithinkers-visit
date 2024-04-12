@@ -1,23 +1,16 @@
 import { FC, useContext } from "react";
-import { Achievements } from "../../components/Achievements";
 import { BusinessSolution } from "../../components/BussinessSolution";
-import { Faq } from "../../components/Faq";
 import { Header } from "../../components/Header";
 import { MainBanner } from "../../components/MainBanner";
-import { OurClients } from "../../components/OurClients";
-import { Partners } from "../../components/Partners/Partners";
 import { PriceTabs } from "../../components/PriceTabs";
-import { ProductSteps } from "../../components/ProductSteps";
 import { RestaurantSlider } from "../../components/Restaurant-slider";
-import { ReviewsSlider } from "../../components/ReviewsSlider";
 import { OurPossibilities } from "../../components/OurPossibilities";
 import { OurPossibilitiesPictures } from "../../components/OurPossibilitiesPictures/OurPossibilitiesPictures";
 import { Accomplishments } from "../../components/Accomplishments";
-import { ModalSend } from "../../components/Modal/ModalSend";
-import { ModalSuccess } from "../../components/Modal/ModalSuccess";
 import { AppPreview } from "../../components/Functionality/AppPreview";
 import { Functionality } from "../../components/Functionality/Functionality";
 import { DataContext } from "../../context/ContextData";
+import { Helmet } from "react-helmet";
 
 interface Props {}
 
@@ -30,6 +23,24 @@ export const Site: FC<Props> = () => {
 	} = useContext(DataContext)!;
 	return (
 		<>
+			<Helmet>
+				<link rel="alternate" hrefLang="uk" href="https://e-app.com.ua/site" />
+				<link
+					rel="alternate"
+					hrefLang="ru"
+					href="https://e-app.com.ua/ru/site"
+				/>
+				<link
+					rel="alternate"
+					hrefLang="en-GB"
+					href="https://e-app.com.ua/en/site"
+				/>
+				<link
+					rel="alternate"
+					hrefLang="pl"
+					href="https://e-app.com.ua/pl/site"
+				/>
+			</Helmet>
 			<Header />
 			<div className="header-wrapper">
 				<MainBanner

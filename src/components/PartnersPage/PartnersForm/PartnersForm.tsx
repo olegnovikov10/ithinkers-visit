@@ -1,20 +1,25 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 
 import { Formik, Field, Form } from "formik";
 import { FieldProps } from "formik";
 import * as Yup from "yup";
 
 import "./partnersForm.scss";
+import { MyContext } from "../../../context/Context";
+import PhoneInputField from "../../FormElements/PhoneInput/PhoneInput";
 
 interface Props {}
 
 const SignupSchema = Yup.object().shape({
-	name: Yup.string()
-		.min(10, "Введіть більше символів")
-		.required("Це обовʼязкове поле"),
+	phone: Yup.string()
+		.min(10, "* Введіть більше символів")
+		.required("* Це обовʼязкове поле"),
 });
 
 export const PartnersForm: FC<Props> = () => {
+	const { checkSuccessOpen, checkModalOpen, handleSendForm } =
+		useContext(MyContext)!;
+
 	return (
 		<div className="partners-form">
 			<Formik
@@ -22,20 +27,31 @@ export const PartnersForm: FC<Props> = () => {
 				validationSchema={SignupSchema}
 				onSubmit={async (values, { resetForm }) => {
 					await new Promise((resolve) => setTimeout(resolve, 500));
-					alert(JSON.stringify(values, null, 2));
 					resetForm();
+					handleSendForm(values, "partners-form", "/referral-program");
+					checkSuccessOpen();
 				}}
 			>
 				{({ errors, touched }) => (
 					<Form>
 						<div className="partners-form__inputs-wrap">
-							<Field
-								class="partners-form__input"
-								name="phone"
-								type="text"
-								placeholder="+ 380"
-							/>
-							{errors.phone && touched.phone ? <div>{errors.phone}</div> : null}
+							{errors.phone && touched.phone ? (
+								<div className="partners-form__error">{errors.phone}</div>
+							) : null}
+
+							<Field name="phone">
+								{({ field, form }: FieldProps<string>) => (
+									<Field name="phone">
+										{({ field, form }: FieldProps<string>) => (
+											<PhoneInputField
+												field={field}
+												form={form}
+												containerClass="partners-container-wrap"
+											/>
+										)}
+									</Field>
+								)}
+							</Field>
 						</div>
 						<button
 							type="submit"

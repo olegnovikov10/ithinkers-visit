@@ -4,8 +4,8 @@ import { Navigation } from "swiper/modules";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import prev from "../../assets/images/prev.png";
-import next from "../../assets/images/next.png";
+import prev from "../../assets/images/prev.webp";
+import next from "../../assets/images/next.webp";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -44,9 +44,9 @@ export const ReviewsSlider: FC = () => {
 				spaceBetween={50}
 				slidesPerView="auto"
 			>
-				{reviews.slides.map((slide) => {
+				{reviews.slides.map((slide, i) => {
 					return (
-						<SwiperSlide>
+						<SwiperSlide key={`${slide.author}${i}`}>
 							<div className="reviews-slider__item">
 								<div className="reviews-slider__header">
 									<img src={slide.images} alt="img" />

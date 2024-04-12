@@ -1,4 +1,4 @@
-import { FC, useContext } from "react";
+import { FC } from "react";
 import "./navbar.scss";
 import { Menu } from "../Menu";
 

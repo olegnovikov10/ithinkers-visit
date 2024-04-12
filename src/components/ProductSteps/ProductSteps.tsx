@@ -10,11 +10,12 @@ export const ProductSteps: FC = () => {
 		<section className="s-product-steps">
 			<div className="s-product-steps__title">{developSteps.title}</div>
 			<div className="steps">
-				{developSteps.questions.map((item) => {
+				{developSteps.questions.map((item, i) => {
 					const { title, count, description } = item;
 
 					return (
 						<ProductStepsItem
+							key={`${item.title}${i}`}
 							count={count}
 							title={title}
 							subTitle={description}

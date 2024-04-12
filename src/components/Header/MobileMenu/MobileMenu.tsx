@@ -2,7 +2,7 @@ import { FC } from "react";
 import { LanguageModal } from "../../LanguageSwitcher/LanguageModal/LanguageModal";
 import { Logo } from "../../Logo";
 import cn from "classnames";
-import menuClose from "../../../assets/images/mobile-close.png";
+import menuClose from "../../../assets/images/mobile-close.webp";
 
 import "./mobileMenu.scss";
 import { Menu } from "../Menu";

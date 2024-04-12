@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Button } from "../Button";
 import "./mainBanner.scss";
-import imageBanner from "../../assets/images/banner-mobile.png";
+import imageBanner from "../../assets/images/banner-mobile.webp";
 import { useTranslation } from "react-i18next";
 
 interface Props {

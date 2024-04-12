@@ -798,10 +798,10 @@ export const DataContextProvider: React.FC<Props> = ({ children }) => {
 				data: [
 					{
 						id: "0",
-						name: t("functionlity.tabs.homePage.one.name"),
-						title: t("functionlity.tabs.homePage.one.title"),
-						ios: t("functionlity.tabs.homePage.one.ios"),
-						android: t("functionlity.tabs.homePage.one.android"),
+						name: t("functionlity.tabs.coffeePage.one.name"),
+						title: t("functionlity.tabs.coffeePage.one.title"),
+						ios: t("functionlity.tabs.coffeePage.one.ios"),
+						android: t("functionlity.tabs.coffeePage.one.android"),
 						icon: images.iconSushi,
 						img: images.sushi,
 						images: [
@@ -813,10 +813,10 @@ export const DataContextProvider: React.FC<Props> = ({ children }) => {
 					},
 					{
 						id: "1",
-						name: t("functionlity.tabs.homePage.two.name"),
-						title: t("functionlity.tabs.homePage.two.title"),
-						ios: t("functionlity.tabs.homePage.two.ios"),
-						android: t("functionlity.tabs.homePage.two.android"),
+						name: t("functionlity.tabs.coffeePage.two.name"),
+						title: t("functionlity.tabs.coffeePage.two.title"),
+						ios: t("functionlity.tabs.coffeePage.two.ios"),
+						android: t("functionlity.tabs.coffeePage.two.android"),
 						icon: images.iconBurger,
 						img: images.burger,
 						images: [
@@ -828,10 +828,10 @@ export const DataContextProvider: React.FC<Props> = ({ children }) => {
 					},
 					{
 						id: "2",
-						name: t("functionlity.tabs.homePage.third.name"),
-						title: t("functionlity.tabs.homePage.third.title"),
-						ios: t("functionlity.tabs.homePage.third.ios"),
-						android: t("functionlity.tabs.homePage.third.android"),
+						name: t("functionlity.tabs.coffeePage.third.name"),
+						title: t("functionlity.tabs.coffeePage.third.title"),
+						ios: t("functionlity.tabs.coffeePage.third.ios"),
+						android: t("functionlity.tabs.coffeePage.third.android"),
 						icon: images.iconUkr,
 						img: images.hata,
 						images: [
@@ -967,7 +967,7 @@ export const DataContextProvider: React.FC<Props> = ({ children }) => {
 		},
 		{
 			title: t("header.menu.blog"),
-			href: "#blog",
+			href: "https://e-app.com.ua/blog/",
 		},
 		{
 			title: t("header.menu.partners"),

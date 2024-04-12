@@ -30,10 +30,6 @@
 		line-height: 28px;
 		color: #5b5c55;
 		vertical-align: middle;
-
-		@include onDesktop1200 {
-			margin-bottom: 80px;
-		}
 	}
 }
 
@@ -58,6 +54,9 @@
 
 .custom-pagination-container-wrap {
 	position: relative;
+	@include onDesktop1200 {
+		margin-top: 80px;
+	}
 }
 
 .slide-title {

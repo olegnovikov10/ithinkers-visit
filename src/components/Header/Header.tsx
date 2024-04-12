@@ -4,7 +4,7 @@ import { NavBar } from "./NavBar";
 import { Button } from "../Button";
 import { LanguageSwitcher } from "../LanguageSwitcher";
 
-import menuImg from "../../assets/images/icon-menu.png";
+import menuImg from "../../assets/images/icon-menu.webp";
 
 import "./header.scss";
 import { MobileMenu } from "./MobileMenu";

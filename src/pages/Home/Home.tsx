@@ -13,20 +13,26 @@ import { Faq } from "../../components/Faq";
 
 import { Header } from "../../components/Header";
 import { Functionality } from "../../components/Functionality/Functionality";
-import { AppPreview } from "../../components/Functionality/AppPreview";
 import { DataContext } from "../../context/ContextData";
-import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet";
 
 export const Home = () => {
 	const { banner, solution } = useContext(DataContext)!;
 	return (
 		<>
+			<Helmet>
+				<link rel="alternate" hrefLang="uk" href="https://e-app.com.ua/" />
+				<link rel="alternate" hrefLang="ru" href="https://e-app.com.ua/ru" />
+				<link rel="alternate" hrefLang="en-GB" href="https://e-app.com.ua/en" />
+				<link rel="alternate" hrefLang="pl" href="https://e-app.com.ua/pl" />
+			</Helmet>
 			<Header />
 			<div className="header-wrapper">
 				<MainBanner
 					title={banner.homePage.title}
 					description={banner.homePage.description}
 				/>
+				<RestaurantSlider />
 			</div>
 			<div className="main-container">
 				<BusinessSolution isSite={true} isCoffeeShop={true} isApp={true} />

@@ -10,6 +10,7 @@ import { RestaurantSlider } from "../../components/Restaurant-slider";
 import { AppPreview } from "../../components/Functionality/AppPreview";
 import { Functionality } from "../../components/Functionality/Functionality";
 import { DataContext } from "../../context/ContextData";
+import { Helmet } from "react-helmet";
 
 interface Props {}
 
@@ -22,6 +23,28 @@ export const CoffeeShop: FC<Props> = () => {
 	} = useContext(DataContext)!;
 	return (
 		<>
+			<Helmet>
+				<link
+					rel="alternate"
+					hrefLang="uk"
+					href="https://e-app.com.ua/coffeeshop"
+				/>
+				<link
+					rel="alternate"
+					hrefLang="ru"
+					href="https://e-app.com.ua/ru/coffeeshop"
+				/>
+				<link
+					rel="alternate"
+					hrefLang="en-GB"
+					href="https://e-app.com.ua/en/coffeeshop"
+				/>
+				<link
+					rel="alternate"
+					hrefLang="pl"
+					href="https://e-app.com.ua/pl/coffeeshop"
+				/>
+			</Helmet>
 			<Header />
 			<div className="header-wrapper">
 				<MainBanner

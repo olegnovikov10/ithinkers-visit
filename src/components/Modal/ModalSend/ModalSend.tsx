@@ -3,7 +3,7 @@ import { MainForm } from "../../MainForm/MainForm";
 
 import "./modalSend.scss";
 
-import close from "../../../assets/images/mobile-close.png";
+import close from "../../../assets/images/mobile-close.webp";
 import { MyContext } from "../../../context/Context";
 import { ModalLayout } from "../ModalLayout";
 

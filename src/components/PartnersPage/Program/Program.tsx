@@ -13,9 +13,9 @@ export const Program: FC<Props> = ({ data }) => {
 			<div className="program__title">{data.title}</div>
 
 			<div className="program-steps">
-				{data.data.map((item) => {
+				{data.data.map((item, i) => {
 					return (
-						<div className="program-steps__item">
+						<div key={`${item}${i}`} className="program-steps__item">
 							<div className="program-steps__header">{item.count}</div>
 							<div className="program-steps__title">{item.title}</div>
 							<div className="program-steps__content">{item.description}</div>

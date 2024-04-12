@@ -6,6 +6,7 @@ import { MyContext } from "../../context/Context";
 import { DataContext } from "../../context/ContextData";
 import { useTranslation } from "react-i18next";
 import { LanguageOption } from "../../types";
+import { useLocation, useNavigate } from "react-router-dom";
 
 interface Props {
 	isFullLabel?: boolean;
@@ -16,6 +17,9 @@ export const LanguageSwitcher: FC<Props> = ({ isFullLabel, menuOpenUp }) => {
 	const { changeLanguage } = useContext(MyContext)!;
 	const { optionsLng } = useContext(DataContext)!;
 
+	const navigate = useNavigate();
+	const location = useLocation();
+
 	const { i18n } = useTranslation();
 
 	const [selectedOption, setSelectedOption] = useState<LanguageOption | null>(
@@ -24,8 +28,24 @@ export const LanguageSwitcher: FC<Props> = ({ isFullLabel, menuOpenUp }) => {
 
 	const handleLanguageChange = (selectedOption: LanguageOption | null) => {
 		setSelectedOption(selectedOption); // Обновляем выбранный язык в состоянии компонента
+
 		if (selectedOption) {
-			changeLanguage(selectedOption.value); // Вызываем функцию изменения языка из контекста
+			const language = selectedOption.value;
+			const currentPath = location.pathname;
+
+			// Удаляем существующий префикс языка из текущего пути
+			let newPath = currentPath.replace(/^\/[a-zA-Z]{2}(\/|$)/, "/");
+
+			// Добавляем новый префикс выбранного языка к URL-адресу, если он не равен "uk"
+			if (language !== "uk") {
+				newPath = `/${language}${newPath}`;
+			}
+
+			// Выполняем навигацию на новый путь
+			navigate(newPath);
+
+			// Вызываем функцию изменения языка из контекста
+			changeLanguage(language);
 		}
 	};
 

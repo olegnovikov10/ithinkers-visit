@@ -11,9 +11,9 @@ export const Advantages: FC<Props> = ({ data }) => {
 		<div className="s-partners-adv">
 			<h2 className="s-partners-adv__title">{data.title}</h2>
 			<div className="partners-adv">
-				{data.data.map((item) => {
+				{data.data.map((item, i) => {
 					return (
-						<div className="partners-adv__item">
+						<div key={`${item}${i}`} className="partners-adv__item">
 							<div className="partners-adv__header">{item.header}</div>
 							<div className="partners-adv__title">{item.title}</div>
 							<div className="partners-adv__description">

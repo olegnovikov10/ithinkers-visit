@@ -2,7 +2,7 @@
 @import "../../styles/utils/mixins.scss";
 
 .footer {
-	background-image: url(../../assets/images/bg.png);
+	background-image: url(../../assets/images/bg.webp);
 	background-size: cover;
 	background-position: center;
 	padding: 32px 24px;
@@ -15,7 +15,6 @@
 	@include onDesktop1200 {
 		border-radius: 24px;
 	}
-
 
 	&__language {
 		@include onDesktop1200 {
@@ -30,7 +29,7 @@
 			top: -60px;
 			left: 50%;
 			width: 500px;
-			background-image: url(../../assets/images/footer-display.png);
+			background-image: url(../../assets/images/footer-display.webp);
 			background-size: cover;
 			height: 800px;
 		}

@@ -14,9 +14,10 @@ export const OurPossibilitiesPictures: FC<Props> = ({ possibilities }) => {
 				{possibilities?.title}
 			</h2>
 			<div className="our-posibilities-pictures">
-				{possibilities?.dataPictures.map((item) => {
+				{possibilities?.dataPictures.map((item, i) => {
 					return (
 						<div
+							key={`${item}${i}`}
 							className="our-posibilities-pictures__item"
 							style={{ backgroundImage: `url(${item.img})` }}
 						>

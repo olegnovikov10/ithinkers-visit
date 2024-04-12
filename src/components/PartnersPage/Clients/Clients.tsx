@@ -13,9 +13,9 @@ export const Clients: FC<Props> = ({ data }) => {
 			<div className="s-potential-clients__title">{data.title}</div>
 
 			<div className="potential-clients">
-				{data.data.map((item) => {
+				{data.data.map((item, i) => {
 					return (
-						<div className="potential-clients__item">
+						<div key={`${item}${i}`} className="potential-clients__item">
 							<div className="potential-clients__header">
 								<img src={item.img} alt="" />
 							</div>

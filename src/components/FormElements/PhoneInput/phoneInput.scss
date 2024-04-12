@@ -1,0 +1,25 @@
+.react-class-input {
+	background-color: #fff !important;
+	padding-left: 55px !important;
+	border-radius: 8px !important;
+	border: none !important;
+	height: 56px !important;
+	width: 100% !important;
+	font-size: 20px !important;
+	color: #7b7b7b;
+	&::placeholder {
+		font-size: 20px;
+		color: #7b7b7b;
+	}
+}
+
+.react-class-button {
+	border: none !important;
+	background: #fff !important;
+	border-top-left-radius: 8px !important;
+	border-bottom-left-radius: 8px !important;
+
+	& > div {
+		padding-left: 20px !important ;
+	}
+}

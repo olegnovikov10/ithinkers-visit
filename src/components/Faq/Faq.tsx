@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { FC, useState } from "react";
 import cn from "classnames";
 

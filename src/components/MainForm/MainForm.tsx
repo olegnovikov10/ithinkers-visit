@@ -1,26 +1,31 @@
-import { FC } from "react";
-
-import { Formik, Field, Form, FieldInputProps } from "formik";
+import { FC, useContext } from "react";
+import { Formik, Field, Form } from "formik";
 import "./mainForm.scss";
-import { PhoneInput } from "./PhoneIput";
 import { FieldProps } from "formik";
 import * as Yup from "yup";
 
-import PhoneInputR from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import { MyContext } from "../../context/Context";
+import PhoneInputField from "../FormElements/PhoneInput/PhoneInput";
+import { useLocation } from "react-router-dom";
 
 interface Props {}
 
 const SignupSchema = Yup.object().shape({
 	name: Yup.string()
-		.min(2, "Введіть більше символів")
-		.required("Це обовʼязкове поле"),
+		.min(2, "* Введіть більше символів")
+		.required("* Це обовʼязкове поле"),
 	phone: Yup.string()
-		.min(5, "Введіть більше символів")
-		.required("Це обовʼязкове поле"),
+		.min(5, "* Введіть більше символів")
+		.required("* Це обовʼязкове поле"),
 });
 
 export const MainForm: FC<Props> = () => {
+	const { checkSuccessOpen, checkModalOpen, handleSendForm } =
+		useContext(MyContext)!;
+
+	const location = useLocation();
+
 	return (
 		<div className="main-form">
 			<h2 className="h2 main-form__title">
@@ -31,8 +36,10 @@ export const MainForm: FC<Props> = () => {
 				validationSchema={SignupSchema}
 				onSubmit={async (values, { resetForm }) => {
 					await new Promise((resolve) => setTimeout(resolve, 500));
-					alert(JSON.stringify(values, null, 2));
 					resetForm();
+					checkModalOpen();
+					handleSendForm(values, "", location.pathname);
+					checkSuccessOpen();
 				}}
 			>
 				{({ errors, touched }) => (
@@ -44,26 +51,19 @@ export const MainForm: FC<Props> = () => {
 								type="text"
 								placeholder="Ім’я*"
 							/>
-							{errors.name && touched.name ? <div>{errors.name}</div> : null}
+							{errors.name && touched.name ? (
+								<div className="main-form__error">{errors.name}</div>
+							) : null}
 
 							<Field name="phone">
 								{({ field, form }: FieldProps<string>) => (
-									<PhoneInputR
-										inputClass="main-form__input"
-										containerClass="main-form__input-phone-container"
-										buttonClass="main-form__icon-phone"
-										country={"ua"}
-										onlyCountries={["ua", "gb", "pl", "ru"]}
-										value={field.value}
-										onChange={(value: string) =>
-											form.setFieldValue(field.name, value)
-										}
-										onBlur={field.onBlur}
-										inputProps={{ name: "phone" }}
-									/>
+									<PhoneInputField field={field} form={form} />
 								)}
 							</Field>
-							{errors.phone && touched.phone ? <div>{errors.phone}</div> : null}
+
+							{errors.phone && touched.phone ? (
+								<div className="main-form__error">{errors.phone}</div>
+							) : null}
 
 							<Field
 								placeholder="Назва закладу"

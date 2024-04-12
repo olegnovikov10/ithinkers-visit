@@ -1,37 +1,34 @@
 @import "../../../styles/utils/vars.scss";
 @import "../../../styles/utils/mixins.scss";
 
-.partners-banner{
-    padding: 114px 20px 84px;
-    background: url('../../../assets/images/banner-bg.png');
-    background-position: center;
+.partners-banner {
+	padding: 114px 20px 84px;
+	background: url("../../../assets/images/banner-bg.webp");
+	background-position: center;
 
-    &__title{
-        font-size: 28px;
-        font-weight: 500;
-        color: black;
-        margin-bottom: 17px;
-        text-align: center;
+	&__title {
+		font-size: 28px;
+		font-weight: 500;
+		color: black;
+		margin-bottom: 17px;
+		text-align: center;
 
-        @include onDesktop1200{
-            font-size: 42px;
-            font-weight: 500;
-            
-        }
+		@include onDesktop1200 {
+			font-size: 42px;
+			font-weight: 500;
+		}
+	}
 
-    }
+	&__description {
+		font-size: 16px;
+		font-weight: 500;
+		color: black;
+		margin-bottom: 40px;
+		text-align: center;
 
-    &__description {
-        font-size: 16px;
-        font-weight: 500;
-        color: black;
-        margin-bottom: 40px;
-        text-align: center;
-
-        @include onDesktop1200{
-            font-size: 20px;
-            font-weight: 500;
-            
-        }
-    }
+		@include onDesktop1200 {
+			font-size: 20px;
+			font-weight: 500;
+		}
+	}
 }

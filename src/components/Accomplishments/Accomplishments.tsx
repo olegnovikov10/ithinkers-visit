@@ -1,7 +1,7 @@
 import { FC } from "react";
+import { AdvantagesPage } from "../../context/ContextData";
 
 import "./accomplishments.scss";
-import { AdvantagesPage } from "../../context/ContextData";
 
 interface Props {
 	title: string;
@@ -16,9 +16,9 @@ export const Accomplishments: FC<Props> = ({ title, advantages }) => {
 				<div className="accomplishments__item-wrap ">
 					<div className="accomplishments__title">{advantages?.our.title}</div>
 					<div className="accomplishments__content accomplishments__content--with-bg ">
-						{advantages?.our.data.map((item) => {
+						{advantages?.our.data.map((item, i) => {
 							return (
-								<div className="accomplishments__item">
+								<div key={`${item}${i}`} className="accomplishments__item">
 									<h4 className="accomplishments__header">{item.title}</h4>
 									<p className="accomplishments__description">
 										{item.description}
@@ -34,9 +34,12 @@ export const Accomplishments: FC<Props> = ({ title, advantages }) => {
 					</div>
 
 					<div className="accomplishments__content accomplishments__content ">
-						{advantages?.other.data.map((item) => {
+						{advantages?.other.data.map((item, i) => {
 							return (
-								<div className="accomplishments__item accomplishments__item--no-bg">
+								<div
+									key={`${item}${i}`}
+									className="accomplishments__item accomplishments__item--no-bg"
+								>
 									<h4 className="accomplishments__header">{item.title}</h4>
 									<p className="accomplishments__description">
 										{item.description}

@@ -15,7 +15,7 @@ i18n
   .init({
     lng: 'uk',
     fallbackLng: 'uk',
-    debug: true,
+    debug: false,
 
     react: {
       defaultTransParent: 'div', // needed for preact

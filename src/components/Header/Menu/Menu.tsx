@@ -1,6 +1,7 @@
-import { Context, FC, useContext } from "react";
+import { FC, useContext } from "react";
 import { DataContext } from "../../../context/ContextData";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 interface Props {
 	handleOpenMenu?: () => void;
@@ -8,39 +9,38 @@ interface Props {
 
 export const Menu: FC<Props> = ({ handleOpenMenu }) => {
 	const { menu } = useContext(DataContext)!;
+	const { i18n } = useTranslation(); // Получаем текущий язык
 
 	const location = useLocation();
-
 	const navigate = useNavigate();
 
-	const handleCheckRedirect = (params: string) => {
-		if (location.pathname !== "/") {
-			navigate(`${"/"}${params}`);
+	const handleCheckRedirect = (href: string) => {
+		const langPath = `/${i18n.language}`; // Получаем языковую часть URL
+		if (langPath === "/uk") {
+			navigate(`${href}`);
 			return;
 		}
+		const destination = href.startsWith(langPath) ? href : `${langPath}${href}`;
+		navigate(destination); // Переходим на страницу с учетом языкаы
 	};
 
 	return (
 		<ul className="nav">
-			{menu.map((item) => {
+			{menu.map((item, i) => {
 				if (item.type === "link-router") {
 					return (
-						<li className="nav__item">
-							<Link
+						<li key={`${item}${i}`} className="nav__item">
+							<a
 								className="nav__link"
-								to={item.href}
-								onClick={handleOpenMenu}
+								onClick={() => handleCheckRedirect(item.href)}
 							>
 								{item.title}
-							</Link>
+							</a>
 						</li>
 					);
 				}
 				return (
-					<li
-						className="nav__item"
-						onClick={() => handleCheckRedirect(item.href)}
-					>
+					<li key={`${item}${i}`} className="nav__item">
 						<a className="nav__link" href={item.href} onClick={handleOpenMenu}>
 							{item.title}
 						</a>
